@@ -22,3 +22,7 @@
 | 3-2 递归移除元素最简写法 | 链表实现中的removeElements方法 | [LinkedList](src/main/java/linkedlist/LinkedList.java) |
 | **五、二分搜索树** | | |
 | 3-1 二分搜索树 | 二分搜索树基本实现</br> 二分搜索树前中后序遍历</br> 二分搜索树非递归遍历</br> 二分搜索树层序遍历 | [BinarySearchTree](src/main/java/binarysearchtree/BinarySearchTree.java) |
+| **六、集合和映射** | | |
+| 6-1 集合实现一 | 基于二分搜索树的集合实现 | [BSTSet](src/main/java/set/BSTSet.java) |
+| 6-2 集合实现二 | 基于链表的集合实现 | [BSTSet](src/main/java/set/LinkedListSet.java) |
+| 6-3 唯一摩尔斯密码词 | [LeetCode(804)](https://leetcode-cn.com/problems/unique-morse-code-words/) | [BSTSet](src/main/java/set/leetcode/Solution.java) |

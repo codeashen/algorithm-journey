@@ -213,6 +213,27 @@ public class LinkedList<E> {
     }
 
     /**
+     * 删除链表中第一个元素 e
+     *
+     * @param e
+     */
+    public void removeElement(E e) {
+        Node prev = dummyHead;
+        while (prev.next != null) {
+            if (prev.next.e.equals(e)) {
+                break;
+            }
+            prev = prev.next;
+        }
+
+        if (prev.next != null) {
+            Node delNode = prev.next;
+            prev.next = delNode.next;
+            delNode.next = null;
+        }
+    }
+
+    /**
      * 移除链表中所有指定元素节点
      *
      * @param e

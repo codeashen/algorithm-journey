@@ -66,7 +66,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
         // 不考虑相同元素的情况
         if (e.compareTo(node.e) < 0) {
             node.left = add(node.left, e);
-        } else if (e.compareTo(root.e) > 0) {
+        } else if (e.compareTo(node.e) > 0) {
             node.right = add(node.right, e);
         }
         return node;
