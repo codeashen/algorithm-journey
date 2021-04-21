@@ -291,7 +291,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
             return leftNode;
         }
 
-        // 不是大节点时，继续递归调用，将右子树变成递归调用的返回子树
+        // 不是当前节点时，继续递归调用，将右子树变成递归调用的返回子树
         node.right = removeMax(node.right);
         return node;
     }
