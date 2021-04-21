@@ -26,3 +26,4 @@
 | 6-1 集合实现一 | 基于二分搜索树的集合实现 | [BSTSet](src/main/java/set/BSTSet.java) |
 | 6-2 集合实现二 | 基于链表的集合实现 | [BSTSet](src/main/java/set/LinkedListSet.java) |
 | 6-3 唯一摩尔斯密码词 | [LeetCode(804)](https://leetcode-cn.com/problems/unique-morse-code-words/) | [BSTSet](src/main/java/set/leetcode/Solution.java) |
+| 6-4 映射实现 | 基于链表的映射实现 | [LinkedListMap](src/main/java/map/LinkedListMap.java) |
