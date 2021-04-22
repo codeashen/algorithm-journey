@@ -33,6 +33,7 @@
 | [**七、优先队列和堆**](#七、优先队列和堆) |  |  |
 | 7-1 二叉最大堆 | 二叉最大堆的数组表示实现 | [MaxHeap](src/main/java/heap/MaxHeap.java) |
 | 7-2 优先队列 | 基于最大堆的优先队列实现 | [MaxHeap](src/main/java/queue/PriorityQueue.java) |
+| 7-3 前K个高频元素 | [LeetCode(804)](https://leetcode-cn.com/problems/top-k-frequent-elements/) | 最大堆优先队列解法 [MaxHeap](src/main/java/queue/leetcode/Solution.java) </br> Java自带最小堆优先队列解法 [MaxHeap](src/main/java/queue/leetcode/Solution2.java) |
 |  |  |  |
 
 ## 七、优先队列和堆
