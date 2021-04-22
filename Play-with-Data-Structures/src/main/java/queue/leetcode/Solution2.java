@@ -11,43 +11,27 @@ import java.util.PriorityQueue;
  */
 public class Solution2 {
 
-    private class Freq {
-        int e;      // 元素
-        int frep;   // 频次
-
-        public Freq(int e, int frep) {
-            this.e = e;
-            this.frep = frep;
-        }
-    }
-
-    private class FrepComparator implements Comparator<Freq> {
-        @Override
-        public int compare(Freq o1, Freq o2) {
-            return o1.frep - o2.frep;
-        }
-    }
-
     public int[] topKFrequent(int[] nums, int k) {
-        // 统计频次的 map, k=元素，v=频次
+        // 统计频次的 map, key=元素，value=频次
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
             map.put(num, map.containsKey(num) ? map.get(num) + 1 : 1);
         }
 
-        PriorityQueue<Freq> queue = new PriorityQueue<>(new FrepComparator());
+        // 优先级队列，存放元素，传入比较器，比较元素对应的频次
+        PriorityQueue<Integer> queue = new PriorityQueue<>(Comparator.comparingInt(map::get));
         for (Integer key : map.keySet()) {
             if (queue.size() < k) {
-                queue.add(new Freq(key, map.get(key)));
-            } else if (map.get(key) > queue.peek().frep) {
+                queue.add(key);
+            } else if (map.get(key) > map.get(queue.peek())) {
                 queue.remove();
-                queue.add(new Freq(key, map.get(key)));
+                queue.add(key);
             }
         }
 
         int[] res = new int[k];
         for (int i = 0; i < res.length; i++) {
-            res[i] = queue.remove().e;
+            res[i] = queue.remove();
         }
         return res;
     }
