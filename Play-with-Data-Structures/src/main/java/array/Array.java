@@ -24,6 +24,14 @@ public class Array<E> {
     public Array() {
         this(10);
     }
+    
+    public Array(E[] arr) {
+        data = (E[]) new Object[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            data[i] = arr[i];
+        }
+        size = arr.length;
+    }
 
     /**
      * 获取数组的容量
@@ -228,6 +236,20 @@ public class Array<E> {
      */
     public E getLast() {
         return get(size - 1);
+    }
+
+    /**
+     * 交换数组中两个索引位置的元素
+     * @param i
+     * @param j
+     */
+    public void swap(int i, int j) {
+        if (i < 0 || i >= size || j < 0 || j >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+        E t = data[i];
+        data[i] = data[j];
+        data[j] = t;
     }
 
     @Override

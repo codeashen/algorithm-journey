@@ -1,7 +1,7 @@
 # 玩转数据结构
 
-| 章节 | 说明 | 代码 | 
-| :--- | :--- | :--- | 
+| 章节 | 说明 | 代码 |
+| :--- | :--- | :--- |
 | **一、数组** | | |
 | 1-1 自定义数组 | 动态泛型数组 | [Array](src/main/java/array/Array.java) |
 | **二、栈和队列** | | |
@@ -30,3 +30,63 @@
 | 6-5 映射实现二 | 基于二分搜索树的映射实现 | [BSTMap](src/main/java/map/BSTMap.java) |
 | 6-6 映射和集合 | 基于映射实现集合 | [待补充] |
 | 6-7 两个数组的交集 | [LeetCode(349)](https://leetcode-cn.com/problems/intersection-of-two-arrays/) </br>[LeetCode(350)](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/) | 两个数组的交集 [Solution](src/main/java/map/leetcode/Solution.java)<br/> 两个数组的交集 II [Solution](src/main/java/map/leetcode/Solution2.java) |
+| [**七、优先队列和堆**](#七、优先队列和堆) |  |  |
+|  |  |  |
+|  |  |  |
+
+## 七、优先队列和堆
+
+普通队列：先进先出，后进后出
+优先队列：出队顺序和入队顺序无关，和优先级有关（动态选择优先级最高的队列）
+
+| 实现 | 入队 | 出队（拿出最大元素） |
+| 普通线性结构 | O(1) | O(n) |
+| 顺序线性结构 | O(n) | O(1) |
+| 堆 | O(log n) | O(log n) |
+
+**堆的基本结构：**
+
+![image-20210422101339317](D:\Github\DS-A-Journey\Play-with-Data-Structures\assert\image-20210422101339317.png)
+
+- 二叉堆是一棵完全二叉树
+
+  > 完全二叉树：把元素顺序排列成树的形状（一层一层从左到右排列）
+
+- 堆中某个节点的值总是不大于其父节点的值（最大堆，反之为最小堆）
+
+  > 最大堆：根节点最大，子节点不大于父节点
+  > 最小堆：根节点最小，子节点不小于父节点
+
+**用数组存储二叉堆：**
+
+将二叉堆的元素逐层从左到右存放在数组中
+
+1. 方式一：数组0索引留空
+
+![image-20210422104222299](D:\Github\DS-A-Journey\Play-with-Data-Structures\assert\image-20210422104222299.png)
+
+二叉堆中元素在数组中索引为 i，改元素的父子节点在数组中的索引有以下关系
+
+```
+parent(i) = i/2
+left(i) = 2*i
+right(i) = 2*i + 1
+```
+
+2. 方式二：数组0索引不留空
+
+![image-20210422104939037](D:\Github\DS-A-Journey\Play-with-Data-Structures\assert\image-20210422104939037.png)
+
+二叉堆中元素在数组中索引为 i，改元素的父子节点在数组中的索引有以下关系
+
+```
+parent(i) = (i - 1)/2
+left(i) = 2*i + 1
+right(i) = 2*i + 2
+```
+
+
+
+
+
+
