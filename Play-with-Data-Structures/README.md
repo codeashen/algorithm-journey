@@ -31,7 +31,8 @@
 | 6-6 映射和集合 | 基于映射实现集合 | [待补充] |
 | 6-7 两个数组的交集 | [LeetCode(349)](https://leetcode-cn.com/problems/intersection-of-two-arrays/) </br>[LeetCode(350)](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/) | 两个数组的交集 [Solution](src/main/java/map/leetcode/Solution.java)<br/> 两个数组的交集 II [Solution](src/main/java/map/leetcode/Solution2.java) |
 | [**七、优先队列和堆**](#七、优先队列和堆) |  |  |
-|  |  |  |
+| 7-1 二叉最大堆 | 二叉最大堆的数组表示实现 | [MaxHeap](src/main/java/heap/MaxHeap.java) |
+| 7-2 优先队列 | 基于最大堆的优先队列实现 | [MaxHeap](src/main/java/queue/PriorityQueue.java) |
 |  |  |  |
 
 ## 七、优先队列和堆
