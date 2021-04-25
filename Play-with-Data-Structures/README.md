@@ -18,7 +18,7 @@
 | 3-6 循环双链表 | 循环双向链表的基本实现 | [待补充] |
 | 3-7 数组链表 | 基于数组的链表基本实现 | [待补充] |
 | **四、透过链表看递归** | | |
-| 3-1 移除链表元素 | [LeetCode(203)](https://leetcode-cn.com/problems/remove-linked-list-elements/) | 基本解法 [BasicSolution](src/main/java/linkedlist/leetcode/Solution.java)<br/> 虚拟头节点解法 [DummyHeadSolution](src/main/java/linkedlist/leetcode/Solution2.java)<br/> 递归解法 [RecursionSolution](src/main/java/linkedlist/leetcode/Solution3.java)<br/> |
+| 3-1 移除链表元素 | [LeetCode(203)](https://leetcode-cn.com/problems/remove-linked-list-elements/) | 基本解法 [BasicSolution](src/main/java/linkedlist/leetcode/Solution.java)<br/>虚拟头节点解法 [DummyHeadSolution](src/main/java/linkedlist/leetcode/Solution2.java)<br/>递归解法 [RecursionSolution](src/main/java/linkedlist/leetcode/Solution3.java)<br/> |
 | 3-2 递归移除元素最简写法 | 链表实现中的removeElements方法 | [LinkedList](src/main/java/linkedlist/LinkedList.java) |
 | **五、二分搜索树** | | |
 | 3-1 二分搜索树 | 二分搜索树基本实现</br> 二分搜索树前中后序遍历</br> 二分搜索树非递归遍历</br> 二分搜索树层序遍历 | [BinarySearchTree](src/main/java/binarysearchtree/BinarySearchTree.java) |
@@ -29,14 +29,16 @@
 | 6-4 映射实现一 | 基于链表的映射实现 | [LinkedListMap](src/main/java/map/LinkedListMap.java) |
 | 6-5 映射实现二 | 基于二分搜索树的映射实现 | [BSTMap](src/main/java/map/BSTMap.java) |
 | 6-6 映射和集合 | 基于映射实现集合 | [待补充] |
-| 6-7 两个数组的交集 | [LeetCode(349)](https://leetcode-cn.com/problems/intersection-of-two-arrays/) </br>[LeetCode(350)](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/) | 两个数组的交集 [Solution](src/main/java/map/leetcode/Solution.java)<br/> 两个数组的交集 II [Solution](src/main/java/map/leetcode/Solution2.java) |
+| 6-7 两个数组的交集 | [LeetCode(349)](https://leetcode-cn.com/problems/intersection-of-two-arrays/) </br>[LeetCode(350)](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/) | 两个数组的交集 [Solution](src/main/java/map/leetcode/Solution.java)<br/>两个数组的交集 II [Solution](src/main/java/map/leetcode/Solution2.java) |
 | [**七、优先队列和堆**](#优先队列和堆) |  |  |
 | 7-1 二叉最大堆 | 二叉最大堆的数组表示实现 | [MaxHeap](src/main/java/heap/MaxHeap.java) |
 | 7-2 优先队列 | 基于最大堆的优先队列实现 | [MaxHeap](src/main/java/queue/PriorityQueue.java) |
-| 7-3 前K个高频元素 | [LeetCode(804)](https://leetcode-cn.com/problems/top-k-frequent-elements/) | 最大堆优先队列解法 [MaxHeap](src/main/java/queue/leetcode/Solution.java) </br> Java自带最小堆优先队列解法 [MaxHeap](src/main/java/queue/leetcode/Solution2.java) |
+| 7-3 前K个高频元素 | [LeetCode(804)](https://leetcode-cn.com/problems/top-k-frequent-elements/) | 最大堆优先队列解法 [MaxHeap](src/main/java/queue/leetcode/Solution.java) <br/>Java自带最小堆优先队列解法 [MaxHeap](src/main/java/queue/leetcode/Solution2.java) |
 | [**八、线段树**](#线段树) |  |  |
+| 8-1 线段树 | 线段树的基本实现 | [SegmentTree](src/main/java/segmenttree/SegmentTree.java) |
+| 8-2 区域和检索 - 数组不变 | [LeetCode(303)](https://leetcode-cn.com/problems/range-sum-query-immutable/) | 使用线段树解法 [NumArray](src/main/java/segmenttree/leetcode/NumArray.java) <br/>不适用线段树解法 [NumArray2](src/main/java/segmenttree/leetcode/NumArray2.java) |
 |  |  |  |
-|  |  |  |
+| 8-4 区域和检索 - 数组可修改 | [LeetCode(307)](https://leetcode-cn.com/problems/range-sum-query-mutable/) | [NumArray3](src/main/java/segmenttree/leetcode/NumArray.java) |
 |  |  |  |
 
 ## 优先队列和堆
@@ -52,7 +54,7 @@
 
 **堆的基本结构：**
 
-![image-20210422101339317](D:\Github\DS-A-Journey\Play-with-Data-Structures\assert\image-20210422101339317.png)
+![image-20210422101339317](assert\image-20210422101339317.png)
 
 - 二叉堆是一棵完全二叉树
 
@@ -69,7 +71,7 @@
 
 1. 方式一：数组0索引留空
 
-![image-20210422104222299](D:\Github\DS-A-Journey\Play-with-Data-Structures\assert\image-20210422104222299.png)
+![image-20210422104222299](assert\image-20210422104222299.png)
 
 二叉堆中元素在数组中索引为 i，改元素的父子节点在数组中的索引有以下关系
 
@@ -81,7 +83,7 @@ right(i) = 2*i + 1
 
 2. 方式二：数组0索引不留空
 
-![image-20210422104939037](D:\Github\DS-A-Journey\Play-with-Data-Structures\assert\image-20210422104939037.png)
+![image-20210422104939037](assert\image-20210422104939037.png)
 
 二叉堆中元素在数组中索引为 i，改元素的父子节点在数组中的索引有以下关系
 
@@ -105,7 +107,7 @@ right(i) = 2*i + 2
 
 线段树示意图：
 
-![image-20210422173338004](D:\Github\DS-A-Journey\Play-with-Data-Structures\assert\image-20210422173338004.png)
+![image-20210422173338004](assert\image-20210422173338004.png)
 
 - 线段树不是完全二叉树
 - 线段树是平衡二叉树
@@ -128,5 +130,5 @@ right(i) = 2*i + 2
 
 我们的线段树不考虑添加元素，即区间固定，使用 4n 的静态空间即可。下图为例，区间里有 5 个元素。
 
-![image-20210425161657652](D:\Github\DS-A-Journey\Play-with-Data-Structures\assert\image-20210425161657652.png)
+![image-20210425161657652](assert\image-20210425161657652.png)
 
