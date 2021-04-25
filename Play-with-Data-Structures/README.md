@@ -30,18 +30,22 @@
 | 6-5 映射实现二 | 基于二分搜索树的映射实现 | [BSTMap](src/main/java/map/BSTMap.java) |
 | 6-6 映射和集合 | 基于映射实现集合 | [待补充] |
 | 6-7 两个数组的交集 | [LeetCode(349)](https://leetcode-cn.com/problems/intersection-of-two-arrays/) </br>[LeetCode(350)](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/) | 两个数组的交集 [Solution](src/main/java/map/leetcode/Solution.java)<br/> 两个数组的交集 II [Solution](src/main/java/map/leetcode/Solution2.java) |
-| [**七、优先队列和堆**](#七、优先队列和堆) |  |  |
+| [**七、优先队列和堆**](#优先队列和堆) |  |  |
 | 7-1 二叉最大堆 | 二叉最大堆的数组表示实现 | [MaxHeap](src/main/java/heap/MaxHeap.java) |
 | 7-2 优先队列 | 基于最大堆的优先队列实现 | [MaxHeap](src/main/java/queue/PriorityQueue.java) |
 | 7-3 前K个高频元素 | [LeetCode(804)](https://leetcode-cn.com/problems/top-k-frequent-elements/) | 最大堆优先队列解法 [MaxHeap](src/main/java/queue/leetcode/Solution.java) </br> Java自带最小堆优先队列解法 [MaxHeap](src/main/java/queue/leetcode/Solution2.java) |
+| [**八、线段树**](#线段树) |  |  |
+|  |  |  |
+|  |  |  |
 |  |  |  |
 
-## 七、优先队列和堆
+## 优先队列和堆
 
 普通队列：先进先出，后进后出
 优先队列：出队顺序和入队顺序无关，和优先级有关（动态选择优先级最高的队列）
 
 | 实现 | 入队 | 出队（拿出最大元素） |
+| :---: | :---: | :---: |
 | 普通线性结构 | O(1) | O(n) |
 | 顺序线性结构 | O(n) | O(1) |
 | 堆 | O(log n) | O(log n) |
@@ -87,8 +91,42 @@ left(i) = 2*i + 1
 right(i) = 2*i + 2
 ```
 
+## 线段树
 
+最经典的线段树问题：区间染色
 
+- m次操作后，我们可以看到多少种颜色？
+- m次操作后，我们可以在 [i, j] 区间内看到多少种颜色？
 
+|  | 数组实现 | 线段树实现 |
+| :---: | :---: | :---: |
+| 更新 | O(n) | O(log n) |
+| 查询 | O(n) | O(log n) |
 
+线段树示意图：
+
+![image-20210422173338004](D:\Github\DS-A-Journey\Play-with-Data-Structures\assert\image-20210422173338004.png)
+
+- 线段树不是完全二叉树
+- 线段树是平衡二叉树
+- 堆也是平衡二叉树
+
+如果区间有n个元素，数组表示需要多少个节点？
+
+对于满二叉树，从第0层开始：
+
+- h层，一共有 2^h-1 个节点（大约是 2^h）
+- 最后一层（h-1层），有 2^(h-1) 个节点
+- 最后一层的节点数大致等于前面所有层节点个数之和
+
+如果区间有n个元素，数组表示需要多少个节点？
+
+- 如果 n = 2^k，只需要 2n 的空间
+- 最坏情况，如果 n = 2^k + 1，需要 4n 的空间
+
+所以如果区间有n个元素，数组表示需要 4n 的空间
+
+我们的线段树不考虑添加元素，即区间固定，使用 4n 的静态空间即可。下图为例，区间里有 5 个元素。
+
+![image-20210425161657652](D:\Github\DS-A-Journey\Play-with-Data-Structures\assert\image-20210425161657652.png)
 
