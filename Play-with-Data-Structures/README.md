@@ -36,9 +36,8 @@
 | 7-3 前K个高频元素 | [LeetCode(804)](https://leetcode-cn.com/problems/top-k-frequent-elements/) | 最大堆优先队列解法 [MaxHeap](src/main/java/queue/leetcode/Solution.java) <br/>Java自带最小堆优先队列解法 [MaxHeap](src/main/java/queue/leetcode/Solution2.java) |
 | [**八、线段树**](#线段树) |  |  |
 | 8-1 线段树 | 线段树的基本实现 | [SegmentTree](src/main/java/segmenttree/SegmentTree.java) |
-| 8-2 区域和检索 - 数组不变 | [LeetCode(303)](https://leetcode-cn.com/problems/range-sum-query-immutable/) | 使用线段树解法 [NumArray](src/main/java/segmenttree/leetcode/NumArray.java) <br/>不适用线段树解法 [NumArray2](src/main/java/segmenttree/leetcode/NumArray2.java) |
-|  |  |  |
-| 8-4 区域和检索 - 数组可修改 | [LeetCode(307)](https://leetcode-cn.com/problems/range-sum-query-mutable/) | [NumArray3](src/main/java/segmenttree/leetcode/NumArray.java) |
+| 8-2 区域和检索 - 数组不变 | [LeetCode(303)](https://leetcode-cn.com/problems/range-sum-query-immutable/) | 使用线段树解法 [NumArray](src/main/java/segmenttree/leetcode/NumArray.java) <br/>不使用线段树解法 [NumArray2](src/main/java/segmenttree/leetcode/NumArray2.java) |
+| 8-3 区域和检索 - 数组可修改 | [LeetCode(307)](https://leetcode-cn.com/problems/range-sum-query-mutable/) | ~~不使用线段树解法(超时)~~ [NumArray3](src/main/java/segmenttree/leetcode/NumArray3.java) <br/>使用线段树解法 [NumArray4](src/main/java/segmenttree/leetcode/NumArray4.java) |
 |  |  |  |
 
 ## 优先队列和堆

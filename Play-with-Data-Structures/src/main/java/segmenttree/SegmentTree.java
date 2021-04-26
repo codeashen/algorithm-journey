@@ -143,7 +143,56 @@ public class SegmentTree<E> {
             // 左右结果融合
             return merger.merge(leftResult, rightResult);
         }
+    }
 
+    /**
+     * 将 index 位置的元素更新为 e
+     *
+     * @param index
+     * @param e
+     */
+    public void set(int index, E e) {
+        if (index < 0 || index >= data.length) {
+            throw new IllegalArgumentException("Index is illegal.");
+        }
+
+        data[index] = e;
+        // 更新线段树
+        set(0, 0, data.length - 1, index, e);
+    }
+
+    /**
+     * 在以 treeIndex 为根, l 和 r 为左右边界的线段树里，
+     * 将 index 位置的元素更新为 e
+     *
+     * @param treeIndex 线段树根节点索引
+     * @param l         线段树左边界索引
+     * @param r         线段树右边界索引
+     * @param index     更新元素的索引位置
+     * @param e         更新的新元素
+     */
+    private void set(int treeIndex, int l, int r, int index, E e) {
+        // 递归结束条件，到了叶子节点了，直接更新当前节点的元素
+        if (l == r) {
+            tree[treeIndex] = e;
+            return;
+        }
+
+        // 计算当前线段树的左右子树索引
+        int mid = l + (r - l) / 2;
+        int leftTreeIndex = leftChild(treeIndex);
+        int rightTreeIndex = rightChild(treeIndex);
+
+        if (index >= mid + 1) {
+            // 元素在右子树，去右子树更新
+            set(rightTreeIndex, mid + 1, r, index, e);
+        } else {
+            // 元素在左子树，去左子树更新
+            set(leftTreeIndex, l, mid, index, e);
+        }
+        
+        // 子树更新了，更新当前节点的值
+        tree[treeIndex] = merger.merge(tree[leftTreeIndex], tree[rightTreeIndex]);
     }
 
     @Override

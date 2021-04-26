@@ -1,20 +1,43 @@
 package segmenttree;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class SegmentTreeTest {
-    
-    @Test
-    public void segmentTree() {
+
+    private SegmentTree<Integer> segmentTree;
+
+    @Before
+    public void init() {
         Integer[] arr = {1, 2, 3, 4, 5, 6};
         // 求和线段树
-        SegmentTree<Integer> segmentTree = new SegmentTree<>(arr, (a, b) -> a + b);
-        System.out.println(segmentTree);
+        segmentTree = new SegmentTree<>(arr, (a, b) -> a + b);
+    }
 
-        System.out.println(segmentTree.query(0, 2));
-        System.out.println(segmentTree.query(2, 5));
-        System.out.println(segmentTree.query(0, 5));
+    @Test
+    public void segmentTree() {
+        System.out.println(segmentTree);
+    }
+
+    @Test
+    public void query() {
+        Integer res1 = segmentTree.query(0, 2);
+        Integer res2 = segmentTree.query(2, 5);
+        Integer res3 = segmentTree.query(0, 5);
+
+        System.out.println("线段树 [0, 2] 区间结果：" + res1);
+        System.out.println("线段树 [2, 5] 区间结果：" + res2);
+        System.out.println("线段树 [0, 5] 区间结果：" + res3);
+    }
+
+    @Test
+    public void set() {
+        System.out.println(segmentTree);
+        
+        // index 3 元素更新 为 0  ==> {1, 2, 3, 0, 5, 6}
+        segmentTree.set(3, 0);
+        System.out.println(segmentTree);
     }
 }
