@@ -38,6 +38,14 @@
 | 8-1 线段树 | 线段树的基本实现 | [SegmentTree](src/main/java/segmenttree/SegmentTree.java) |
 | 8-2 区域和检索 - 数组不变 | [LeetCode(303)](https://leetcode-cn.com/problems/range-sum-query-immutable/) | 使用线段树解法 [NumArray](src/main/java/segmenttree/leetcode/NumArray.java) <br/>不使用线段树解法 [NumArray2](src/main/java/segmenttree/leetcode/NumArray2.java) |
 | 8-3 区域和检索 - 数组可修改 | [LeetCode(307)](https://leetcode-cn.com/problems/range-sum-query-mutable/) | ~~不使用线段树解法(超时)~~ [NumArray3](src/main/java/segmenttree/leetcode/NumArray3.java) <br/>使用线段树解法 [NumArray4](src/main/java/segmenttree/leetcode/NumArray4.java) |
+| [**九、字典树**](#字典树) |  |  |
+| 9-1 字典树 | 字典树的基本实现 | [Trie](src/main/java/trie/Trie.java) |
+| 9-2 实现 Trie | [LeetCode(208)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/submissions/) | [Trie](src/main/java/trie/Trie.java) |
+| 9-3 添加与搜索单词 | [LeetCode(211)](https://leetcode-cn.com/problems/design-add-and-search-words-data-structure/) 支持通配符 | [WordDictionary](src/main/java/trie/leetcode/WordDictionary.java) |
+| 9-3 键值映射 | [LeetCode(677)](https://leetcode-cn.com/problems/map-sum-pairs/submissions/) | [MapSum](src/main/java/trie/leetcode/MapSum.java) |
+|  |  |  |
+|  |  |  |
+|  |  |  |
 |  |  |  |
 
 ## 优先队列和堆
@@ -131,3 +139,10 @@ right(i) = 2*i + 2
 
 ![image-20210425161657652](assert\image-20210425161657652.png)
 
+## 字典树
+
+字典树可以看作专门为处理字符串的数据结构。Trie查询每个条目的时间复杂度与Trie中的条目数无关，时间复杂度为 O(w)，其中 w 为查询单词的长度。
+
+> 对比字典，如果使用树结构，其中存储 n 个元素，查询复杂度是 O(log n)
+
+![image-20210426154429249](assert\image-20210426154429249.png)
