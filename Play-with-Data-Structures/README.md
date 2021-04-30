@@ -43,8 +43,13 @@
 | 9-2 实现 Trie | [LeetCode(208)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/submissions/) | [Trie](src/main/java/trie/Trie.java) |
 | 9-3 添加与搜索单词 | [LeetCode(211)](https://leetcode-cn.com/problems/design-add-and-search-words-data-structure/) 支持通配符 | [WordDictionary](src/main/java/trie/leetcode/WordDictionary.java) |
 | 9-3 键值映射 | [LeetCode(677)](https://leetcode-cn.com/problems/map-sum-pairs/submissions/) | [MapSum](src/main/java/trie/leetcode/MapSum.java) |
-|  |  |  |
-|  |  |  |
+| [**十、并查集**](#并查集) |  |  |
+| 10-1 数组并查集 | 最简单的数组并查集 | [UnionFind1](src/main/java/unionfind/UnionFind1.java) |
+| 10-2 树的并查集 | 孩子指向父亲的树并查集 | [UnionFind3](src/main/java/unionfind/UnionFind2.java) |
+| 10-3 并查集优化一 | 基于size优化 | [UnionFind4](src/main/java/unionfind/UnionFind3.java) |
+| 10-4 并查集优化二 | 基于rank优化 | [UnionFind5](src/main/java/unionfind/UnionFind4.java) |
+| 10-5 并查集优化三 | 路径压缩优化 | [UnionFind6](src/main/java/unionfind/UnionFind5.java) |
+| 10-6 并查集优化四 | 递归路径压缩优化 | [UnionFind7](src/main/java/unionfind/UnionFind6.java) |
 |  |  |  |
 |  |  |  |
 
@@ -146,3 +151,37 @@ right(i) = 2*i + 2
 > 对比字典，如果使用树结构，其中存储 n 个元素，查询复杂度是 O(log n)
 
 ![image-20210426154429249](assert\image-20210426154429249.png)
+
+## 并查集
+
+并查集是一种由孩子节点指向父亲节点的树结构，可以非常高效地解决连接问题。
+
+对于一组数据，主要支持两个动作：
+
+- union(p，q)：合并两个元素的集合
+- isConnected(p，q)：判断两个元素是否连接
+
+![image-20210501002133384](assert/image-20210501002133384.png)
+
+上面是用数组表示并查集，数组的 index（横线上面的数字）表示元素编号，数组每个 index 处的值表示 元素的父节点 index。
+
+如上图所示，并查集的元素组成了两个集合，集合中的元素指向父节点元素，根节点指向自己。若将两个集合 A、B 的元素合并，操作为将集合 A 的跟节点指向集合 B 的跟节点。判断两个元素是否连接，就是判断根节点是否相同。两种操作的时间复杂度都为 O(h)，h 为树的深度。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
