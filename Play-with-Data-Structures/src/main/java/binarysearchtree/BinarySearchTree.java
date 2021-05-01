@@ -321,7 +321,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
             node.left = remove(node.left, e);
             return node;
         } else if (e.compareTo(node.e) > 0) {
-            node.left = remove(node.right, e);
+            node.right = remove(node.right, e);
             return node;
         } else {  // e.compareTo(node.e) == 0
 

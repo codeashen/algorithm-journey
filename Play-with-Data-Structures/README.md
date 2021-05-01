@@ -50,7 +50,10 @@
 | 10-4 并查集优化二 | 基于rank优化 | [UnionFind5](src/main/java/unionfind/UnionFind4.java) |
 | 10-5 并查集优化三 | 路径压缩优化 | [UnionFind6](src/main/java/unionfind/UnionFind5.java) |
 | 10-6 并查集优化四 | 递归路径压缩优化 | [UnionFind7](src/main/java/unionfind/UnionFind6.java) |
-|  |  |  |
+| [**十一、AVL树**](#AVL树) |  |  |
+| 11-1 AVL树 | AVL树的基本实现 | [AVLTree](src/main/java/avl/AVLTree.java) |
+| 11-2 AVL映射 | 基于AVL树的映射实现 | [AVLTree](src/main/java/map/AVLMap.java) |
+| 11-3 AVL集合 | 基于AVL树的集合实现 | [AVLSet](src/main/java/set/AVLSet.java) |
 |  |  |  |
 
 ## 优先队列和堆
@@ -167,7 +170,20 @@ right(i) = 2*i + 2
 
 如上图所示，并查集的元素组成了两个集合，集合中的元素指向父节点元素，根节点指向自己。若将两个集合 A、B 的元素合并，操作为将集合 A 的跟节点指向集合 B 的跟节点。判断两个元素是否连接，就是判断根节点是否相同。两种操作的时间复杂度都为 O(h)，h 为树的深度。
 
+## AVL树
 
+AVL树是一种经典的平衡二叉树。
+
+**平衡二叉树：**
+
+- 对于任一节点，左子树和右子树的高度差不能超过1
+- 平衡二叉树的高度和节点数量之间的关系也是 O(log n) 的
+
+> 这里注意区别于满二叉树特征，满二叉树是平衡二叉树，但是平衡二叉树不一定是满二叉树。满二叉树要求任意两个叶子节点的高度不能超过1。
+
+![image-20210501193946972](assert/image-20210501193946972.png)
+
+上图是一个平衡二叉树，但是不是一个满二叉树。
 
 
 
