@@ -55,7 +55,7 @@
 | 11-2 AVL映射 | 基于AVL树的映射实现 | [AVLTree](src/main/java/map/AVLMap.java) |
 | 11-3 AVL集合 | 基于AVL树的集合实现 | [AVLSet](src/main/java/set/AVLSet.java) |
 | [**十二、红黑树**](#红黑树) |  |  |
-|  |  |  |
+| 12-1 红黑树 | 左倾红黑树简单实现 | [RedBlackTree](src/main/java/redblacktree/RedBlackTree.java) |
 | [**十三、哈希表**](#红黑树) |  |  |
 | 13-1 字符串中的第一个唯一字符 | [LeetCode(387)](https://leetcode-cn.com/problems/first-unique-character-in-a-string/) | [Solution](src/main/java/hashtable/leetcode/Solution.java) |
 |  |  |  |
