@@ -3,8 +3,12 @@ package sort;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import sort.advance.MergeSort;
+import sort.advance.MergeSortBU;
 import sort.basic.InsertionSort;
 import sort.basic.SelectionSort;
+
+import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
@@ -15,7 +19,8 @@ public class SortTest {
 
     @Before
     public void initArr() {
-        arr = generateRandomArray(50000, 0, 200);
+        arr = generateRandomArray(2000000, 0, 1000000);
+        // System.out.println(Arrays.toString(arr));
         // arr = generateNearlyOrderedArray(50000, 20);
         sortStartTime = System.currentTimeMillis();
     }
@@ -23,8 +28,8 @@ public class SortTest {
     @After
     public void printArr() {
         System.out.println("time: " + (System.currentTimeMillis() - sortStartTime) + " ms");
-        System.out.println("success: " + isSorted(arr));
-        // printArray(arr);
+        // System.out.println(Arrays.toString(arr));
+        assertTrue(isSorted(arr));
     }
 
     @Test
@@ -37,6 +42,12 @@ public class SortTest {
     public void insertionSort() {
         // InsertionSort.sort2(arr);
         InsertionSort.sort3(arr);
+    }
+    
+    @Test 
+    public void mergeSort() {
+        MergeSort.sort(arr);
+        // MergeSortBU.sort(arr);
     }
 
 
@@ -75,17 +86,7 @@ public class SortTest {
         }
         return arr;
     }
-
-    /**
-     * 打印arr数组的所有内容
-     */
-    private void printArray(Object[] arr) {
-        for (Object o : arr) {
-            System.out.print(o + " ");
-        }
-        System.out.println();
-    }
-
+    
     /**
      * 判断arr数组是否有序
      */

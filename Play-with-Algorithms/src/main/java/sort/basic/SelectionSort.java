@@ -7,8 +7,6 @@ package sort.basic;
  */
 public class SelectionSort {
 
-    private SelectionSort() {}
-
     /**
      * 左边是有序部分，每一轮寻找无需部分最小的元素，和有序部分尾部后一个元素交换
      */

@@ -7,8 +7,6 @@ package sort.basic;
  * 插入排序对近似有序的数组效率很高
  */
 public class InsertionSort {
-    
-    private InsertionSort() {}
 
     /**
      * 写法一：无须部分向有序部分交换移动
