@@ -8,7 +8,6 @@ import java.util.Arrays;
  * O(nlogn)
  */
 public class MergeSortBU {
-
     public static void sort(Comparable[] arr) {
         int n = arr.length;
         // 外层循环 sz 控制归并的区间大小，每轮扩大一倍

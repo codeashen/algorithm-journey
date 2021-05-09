@@ -4,10 +4,10 @@ import java.util.Arrays;
 
 /**
  * 归并排序
- * O(nlogn)
+ * <p>
+ * 时间复杂度 O(nlogn)，可以在1秒之内轻松处理100万数量级的数据
  */
 public class MergeSort {
-
     public static void sort(Comparable[] arr) {
         sort(arr, 0, arr.length - 1);
     }

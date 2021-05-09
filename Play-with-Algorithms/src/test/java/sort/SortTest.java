@@ -1,62 +1,73 @@
 package sort;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import sort.advance.MergeSort;
-import sort.advance.MergeSortBU;
-import sort.basic.InsertionSort;
-import sort.basic.SelectionSort;
+import sort.advance.*;
+import sort.basic.*;
 
-import java.util.Arrays;
+import java.lang.reflect.Method;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 public class SortTest {
 
-    private Integer[] arr;
-    private long sortStartTime;
-
-    @Before
-    public void initArr() {
-        arr = generateRandomArray(2000000, 0, 1000000);
-        // System.out.println(Arrays.toString(arr));
-        // arr = generateNearlyOrderedArray(50000, 20);
-        sortStartTime = System.currentTimeMillis();
-    }
-
-    @After
-    public void printArr() {
-        System.out.println("time: " + (System.currentTimeMillis() - sortStartTime) + " ms");
-        // System.out.println(Arrays.toString(arr));
-        assertTrue(isSorted(arr));
-    }
-
     @Test
-    public void selectionSort() {
-        SelectionSort.sort1(arr);
-        // SelectionSort.sort2(arr);
-    }
-    
-    @Test
-    public void insertionSort() {
-        // InsertionSort.sort2(arr);
-        InsertionSort.sort3(arr);
-    }
-    
-    @Test 
-    public void mergeSort() {
-        MergeSort.sort(arr);
-        // MergeSortBU.sort(arr);
+    public void sortTest() {
+        // 【选择排序】，数量级 1w
+        sort(SelectionSort.class, "sort1", randomArr(10000, 0, 1000000));
+        sort(SelectionSort.class, "sort2", randomArr(10000, 0, 1000000));
+
+        // 【插入排序】，数量级 1w
+        sort(InsertionSort.class, "sort1", randomArr(10000, 0, 1000000));
+        sort(InsertionSort.class, "sort2", randomArr(10000, 0, 1000000));
+        sort(InsertionSort.class, "sort3", randomArr(10000, 0, 1000000));
+        // 插入排序对于近似有序的数组，效率很高
+        sort(InsertionSort.class, "sort3", nearlyOrderedArr(10000, 50));
+
+        // 【归并排序】，数量级 100w
+        sort(MergeSort.class, "sort", randomArr(1000000, 0, 1000000));
+        sort(MergeSortBU.class, "sort", randomArr(1000000, 0, 1000000));
+
+        // 【快速排序】，数量级 100w
+        sort(QuickSort.class, "sort", randomArr(1000000, 0, 1000000));
+        // 对于近似有序的数组，如果不随机选择标的（QuickSort第47行），会导致递归过深，效率很慢甚至直接 StackOverflow
+        sort(QuickSort.class, "sort", nearlyOrderedArr(1000000, 100));
+        // 对于存在大量重复元素的数组，因存在大量和标的 v 相等的元素，这些元素落在标的的一侧，导致递归树不平衡，很慢甚至 StackOverflow
+        sort(QuickSort.class, "sort", randomArr(1000000, 0, 300));
+        // 双端快速排序，解决大量重复元素问题
+        sort(QuickSort2.class, "sort", randomArr(1000000, 0, 300));
     }
 
+    //region ===================== 辅助测试方法 ==========================
 
-    //region 辅助方法
+    /**
+     * 测试排序方法，统计性能
+     *
+     * @param sortClass      使用的排序类
+     * @param sortMethodName 使用的排序方法名
+     * @param arr            待排序数组
+     */
+    private void sort(Class sortClass, String sortMethodName, Comparable[] arr) {
+        try {
+            // 反射获取排序方法
+            Method sortMethod = sortClass.getMethod(sortMethodName, Comparable[].class);
+            long startTime = System.currentTimeMillis();
+            // 执行排序操作
+            sortMethod.invoke(null, (Object) arr);
+            long endTime = System.currentTimeMillis();
+            // 判断是否有序
+            assertTrue(isSorted(arr));
+            // 打印排序时间
+            System.out.printf("%s.%s: count=%d, time=%dms\n",
+                    sortClass.getSimpleName(), sortMethodName, arr.length, (endTime - startTime));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * 生成有n个元素的随机数组,每个元素的随机范围为[rangeL, rangeR]
      */
-    private Integer[] generateRandomArray(int n, int rangeL, int rangeR) {
+    private Integer[] randomArr(int n, int rangeL, int rangeR) {
         assert rangeL <= rangeR;
         Integer[] arr = new Integer[n];
         for (int i = 0; i < n; i++) {
@@ -71,7 +82,7 @@ public class SortTest {
      * swapTimes定义了数组的无序程度:
      * swapTimes == 0 时, 数组完全有序；swapTimes 越大, 数组越趋向于无序
      */
-    private Integer[] generateNearlyOrderedArray(int n, int swapTimes) {
+    private Integer[] nearlyOrderedArr(int n, int swapTimes) {
         Integer[] arr = new Integer[n];
         for (int i = 0; i < n; i++) {
             arr[i] = new Integer(i);
@@ -86,7 +97,7 @@ public class SortTest {
         }
         return arr;
     }
-    
+
     /**
      * 判断arr数组是否有序
      */
@@ -98,6 +109,6 @@ public class SortTest {
         }
         return true;
     }
-    
+
     //endregion
 }

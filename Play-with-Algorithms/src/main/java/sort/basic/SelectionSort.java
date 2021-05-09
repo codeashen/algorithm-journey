@@ -6,7 +6,6 @@ package sort.basic;
  * 时间复杂度 O(n^2)
  */
 public class SelectionSort {
-
     /**
      * 左边是有序部分，每一轮寻找无需部分最小的元素，和有序部分尾部后一个元素交换
      */
