@@ -1,4 +1,4 @@
-package sort.heap;
+package heap;
 
 /**
  * 最大二叉堆简单实现
@@ -70,7 +70,7 @@ public class MaxHeap<E extends Comparable> {
      *
      * @return
      */
-    public E removeMax() {
+    public E extractMax() {
         assert count > 0;
         E e = data[1];
 
@@ -127,13 +127,13 @@ public class MaxHeap<E extends Comparable> {
             if (i + 1 <= count && data[i + 1].compareTo(data[i]) > 0) {
                 i++;
             }
-            // 判断是否需要下沉
+            // 判断是否到底了
             if (data[k].compareTo(data[i]) >= 0) {
                 break;
-            } else {
-                swap(k, i);
-                k = i;
             }
+            // 执行下沉操作
+            swap(k, i);
+            k = i;
         }
     }
 }

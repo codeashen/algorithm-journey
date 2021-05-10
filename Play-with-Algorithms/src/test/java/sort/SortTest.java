@@ -3,8 +3,8 @@ package sort;
 import org.junit.Test;
 import sort.advance.*;
 import sort.basic.*;
-import sort.heap.HeapSort;
-import sort.heap.HeapSort2;
+import heap.HeapSort;
+import heap.HeapSort2;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;

@@ -12,7 +12,8 @@
 | 2-4 [双路快速排序法](src/main/java/sort/advance/QuickSort2.java) | O(nlogn) | 优化：与标的相等的元素划分到两边 |
 | 2-5 [三路快速排序法](src/main/java/sort/advance/QuickSort3.java) | O(nlogn) | 优化：划分三块，与标的相等的元素分在中间，下此不再递归处理 |
 | **[三、堆和堆排序](src/main/java/sort/advance)** | | |
-| 3-1 [堆的简单实现](src/main/java/sort/heap/MaxHeap.java) | 添加,移除: O(logn) | 最大二叉堆，固定容量 |
-| 3-2 [基础堆排序](src/main/java/sort/heap/HeapSort2.java) | O(nlogn) | 1.逐个添加，逐个取出<br>2.使用heapify构建对，再逐个取出 |
-| 3-3 [优化堆排序 - Heap Sort](src/main/java/sort/heap/HeapSort.java) | O(nlogn) | 不使用而外堆，直接在原数组上进行堆排序<br>注意两个shiftDown的区别 |
+| 3-1 [堆的简单实现](src/main/java/heap/MaxHeap.java) | 添加,移除: O(logn) | 最大二叉堆，固定容量 |
+| 3-2 [基础堆排序](src/main/java/heap/HeapSort2.java) | O(nlogn) | 1.逐个添加，逐个取出<br>2.使用heapify构建对，再逐个取出 |
+| 3-3 [优化堆排序 - Heap Sort](src/main/java/heap/HeapSort.java) | O(nlogn) | 不使用而外堆，直接在原数组上进行堆排序<br>注意两个shiftDown的区别 |
+| 3-4 [索引堆](src/main/java/heap/IndexMaxHeap.java) |  |  |
 

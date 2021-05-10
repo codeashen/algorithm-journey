@@ -1,6 +1,6 @@
 package sort;
 
-import sort.heap.MaxHeap;
+import heap.MaxHeap;
 
 /**
  * 树形打印堆，只能处理Integer数据

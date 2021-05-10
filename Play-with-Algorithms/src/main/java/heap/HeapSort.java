@@ -1,4 +1,4 @@
-package sort.heap;
+package heap;
 
 public class HeapSort {
 

@@ -1,4 +1,4 @@
-package sort.heap;
+package heap;
 
 public class HeapSort2 {
 
@@ -18,7 +18,7 @@ public class HeapSort2 {
         }
         // 逐个取出, 倒叙填入
         for (int i = n - 1; i >= 0; i--) {
-            arr[i] = maxHeap.removeMax();
+            arr[i] = maxHeap.extractMax();
         }
     }
 
@@ -35,7 +35,7 @@ public class HeapSort2 {
         MaxHeap<Comparable> maxHeap = new MaxHeap<>(arr);
         // 逐个取出, 倒叙填入
         for (int i = n - 1; i >= 0; i--) {
-            arr[i] = maxHeap.removeMax();
+            arr[i] = maxHeap.extractMax();
         }
     }
 }
