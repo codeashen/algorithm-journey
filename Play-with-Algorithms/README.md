@@ -12,4 +12,4 @@
 | 2-4 [双路快速排序法](src/main/java/sort/advance/QuickSort2.java) | O(nlogn) | 优化：与标的相等的元素划分到两边 |
 | 2-5 [三路快速排序法](src/main/java/sort/advance/QuickSort3.java) | O(nlogn) | 优化：划分三块，与标的相等的元素分在中间，下此不再递归处理 |
 | **[三、堆和堆排序](src/main/java/sort/advance)** | | |
-| 3-1 [堆的简单实现](src/main/java/sort/heap/Heap.java) |  |  |
+| 3-1 [堆的简单实现](src/main/java/sort/heap/MaxHeap.java) | 添加,移除: O(logn) | 最大二叉堆，固定容量 |
