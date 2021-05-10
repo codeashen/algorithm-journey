@@ -5,6 +5,7 @@ import sort.advance.*;
 import sort.basic.*;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 import static org.junit.Assert.assertTrue;
 
@@ -12,29 +13,42 @@ public class SortTest {
 
     @Test
     public void sortTest() {
-        // 【选择排序】，数量级 1w
-        sort(SelectionSort.class, "sort1", randomArr(10000, 0, 1000000));
-        sort(SelectionSort.class, "sort2", randomArr(10000, 0, 1000000));
+        // 随机数组
+        Integer[] randomArr = randomArr(100_0000, 0, 100_0000);
+        // 近似有序数组
+        Integer[] nearlyOrderedArr = nearlyOrderedArr(100_0000, 100);
+        // 大量重复元素数组
+        Integer[] duplicateArr = randomArr(100_0000, 0, 300);
 
-        // 【插入排序】，数量级 1w
-        sort(InsertionSort.class, "sort1", randomArr(10000, 0, 1000000));
-        sort(InsertionSort.class, "sort2", randomArr(10000, 0, 1000000));
-        sort(InsertionSort.class, "sort3", randomArr(10000, 0, 1000000));
+
+        System.out.println("======================= 【选择排序】 =======================");
+        sort(SelectionSort.class, "sort1", Arrays.copyOf(randomArr, 1_0000));
+        sort(SelectionSort.class, "sort2", Arrays.copyOf(randomArr, 1_0000));
+
+        
+        System.out.println("======================= 【插入排序】 =======================");
+        sort(InsertionSort.class, "sort1", Arrays.copyOf(randomArr, 1_0000));
+        sort(InsertionSort.class, "sort2", Arrays.copyOf(randomArr, 1_0000));
+        sort(InsertionSort.class, "sort3", Arrays.copyOf(randomArr, 1_0000));
         // 插入排序对于近似有序的数组，效率很高
-        sort(InsertionSort.class, "sort3", nearlyOrderedArr(10000, 50));
+        sort(InsertionSort.class, "sort3", Arrays.copyOf(nearlyOrderedArr, nearlyOrderedArr.length));
 
-        // 【归并排序】，数量级 100w
-        sort(MergeSort.class, "sort", randomArr(1000000, 0, 1000000));
-        sort(MergeSortBU.class, "sort", randomArr(1000000, 0, 1000000));
+        
+        System.out.println("======================= 【归并排序】 =======================");
+        sort(MergeSort.class, "sort", Arrays.copyOf(randomArr, 100_0000));
+        sort(MergeSortBU.class, "sort", Arrays.copyOf(randomArr, 100_0000));
 
-        // 【快速排序】，数量级 100w
-        sort(QuickSort.class, "sort", randomArr(1000000, 0, 1000000));
+        
+        System.out.println("======================= 【快速排序】 =======================");
+        sort(QuickSort.class, "sort", Arrays.copyOf(randomArr, 100_0000));
         // 对于近似有序的数组，如果不随机选择标的（QuickSort第47行），会导致递归过深，效率很慢甚至直接 StackOverflow
-        sort(QuickSort.class, "sort", nearlyOrderedArr(1000000, 100));
+        sort(QuickSort.class, "sort", Arrays.copyOf(nearlyOrderedArr, 100_0000));
         // 对于存在大量重复元素的数组，因存在大量和标的 v 相等的元素，这些元素落在标的的一侧，导致递归树不平衡，很慢甚至 StackOverflow
-        sort(QuickSort.class, "sort", randomArr(1000000, 0, 300));
-        // 双端快速排序，解决大量重复元素问题
-        sort(QuickSort2.class, "sort", randomArr(1000000, 0, 300));
+        sort(QuickSort.class, "sort", Arrays.copyOf(duplicateArr, 100_0000));
+        // 双路快速排序，解决大量重复元素问题
+        sort(QuickSort2.class, "sort", Arrays.copyOf(duplicateArr, 100_0000));
+        // 三路快速排序，解决大量重复元素问题，减少大小两部分元素数量
+        sort(QuickSort3.class, "sort", Arrays.copyOf(duplicateArr, 100_0000));
     }
 
     //region ===================== 辅助测试方法 ==========================
@@ -56,8 +70,8 @@ public class SortTest {
             long endTime = System.currentTimeMillis();
             // 判断是否有序
             assertTrue(isSorted(arr));
-            // 打印排序时间
-            System.out.printf("%s.%s: count=%d, time=%dms\n",
+            // 打印元素个数和排序时间
+            System.out.printf("%-18s%-10scount=%-10dtime=%dms\n",
                     sortClass.getSimpleName(), sortMethodName, arr.length, (endTime - startTime));
         } catch (Exception e) {
             e.printStackTrace();

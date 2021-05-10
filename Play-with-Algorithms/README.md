@@ -9,5 +9,7 @@
 | 2-1 [归并排序 - Merge Sort](src/main/java/sort/advance/MergeSort.java) | O(nlogn) | 递归写法 |
 | 2-2 [自底向上的归并排序算法](src/main/java/sort/advance/MergeSortBU.java) | O(nlogn) | 滑块写法 |
 | 2-3 [快速排序 - Quick Sort](src/main/java/sort/advance/QuickSort.java) | O(nlogn) | 递归进行选标的，分左右 |
-| 2-3 [双路快速排序法](src/main/java/sort/advance/QuickSort2.java) | O(nlogn) |  |
-
+| 2-4 [双路快速排序法](src/main/java/sort/advance/QuickSort2.java) | O(nlogn) | 优化：与标的相等的元素划分到两边 |
+| 2-5 [三路快速排序法](src/main/java/sort/advance/QuickSort3.java) | O(nlogn) | 优化：划分三块，与标的相等的元素分在中间，下此不再递归处理 |
+| **[三、堆和堆排序](src/main/java/sort/advance)** | | |
+| 3-1 [堆的简单实现](src/main/java/sort/heap/Heap.java) |  |  |
