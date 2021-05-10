@@ -7,7 +7,7 @@ package sort.heap;
  *
  * @param <E>
  */
-public class MaxHeap<E extends Comparable<E>> {
+public class MaxHeap<E extends Comparable> {
 
     /**
      * 堆中元素数组表示，0索引留空，方便索引计算
@@ -59,7 +59,7 @@ public class MaxHeap<E extends Comparable<E>> {
      * @param e
      */
     public void add(E e) {
-        assert capacity > count + 1;
+        assert capacity >= count + 1;
         data[count + 1] = e;
         count++;
         shiftUp(count);
@@ -121,10 +121,10 @@ public class MaxHeap<E extends Comparable<E>> {
      * @param k 下沉元素索引
      */
     private void shiftDown(int k) {
-        while (2 * k < count) {
+        while (2 * k <= count) {
             // 选出子节点中较大者
             int i = 2 * k;
-            if (i + 1 < count && data[i + 1].compareTo(data[i]) > 0) {
+            if (i + 1 <= count && data[i + 1].compareTo(data[i]) > 0) {
                 i++;
             }
             // 判断是否需要下沉

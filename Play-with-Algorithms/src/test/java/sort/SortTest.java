@@ -3,6 +3,8 @@ package sort;
 import org.junit.Test;
 import sort.advance.*;
 import sort.basic.*;
+import sort.heap.HeapSort;
+import sort.heap.HeapSort2;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -49,6 +51,14 @@ public class SortTest {
         sort(QuickSort2.class, "sort", Arrays.copyOf(duplicateArr, 100_0000));
         // 三路快速排序，解决大量重复元素问题，减少大小两部分元素数量
         sort(QuickSort3.class, "sort", Arrays.copyOf(duplicateArr, 100_0000));
+
+
+        System.out.println("======================= 【堆排序】 =========================");
+        // 借助堆数据结构
+        sort(HeapSort2.class, "sort1", Arrays.copyOf(randomArr, 100_0000));
+        sort(HeapSort2.class, "sort2", Arrays.copyOf(randomArr, 100_0000));
+        // 直接在原数组上进行堆排序
+        sort(HeapSort.class, "sort", randomArr(100_0000, 0, 100_0000));
     }
 
     //region ===================== 辅助测试方法 ==========================
