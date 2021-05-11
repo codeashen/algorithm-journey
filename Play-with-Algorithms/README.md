@@ -17,8 +17,15 @@
 | 3-3 [优化堆排序 - Heap Sort](src/main/java/heap/HeapSort.java) | O(nlogn) | 不使用而外堆，直接在原数组上进行堆排序<br>注意两个shiftDown的区别 |
 | 3-4 [索引堆](src/main/java/heap/IndexMaxHeap.java) |  | 维护原始索引 |
 | 3-5 [索引堆优化](src/main/java/heap/IndexMaxHeap2.java) |  | 维护反查索引 |
-| **[四、二分搜索树](src/main/java/sort/advance)** | | |
+| **[四、二分搜索树](src/main/java/binarysearchtree)** | | |
 | 4-1 [二分查找](src/main/java/binarysearchtree/BinarySearch.java) | O(log2n) | 二分查找循环写法和递归写法 |
 | 4-2 [二分搜索树](src/main/java/binarysearchtree/BinarySearchTree.java) |  | 二分搜索树的简单实现 |
+| **[五、并查集](src/main/java/unionfind)** | | |
+| 5-1 [并查集 - 数组实现](src/main/java/unionfind/UnionFind1.java) | 并: O(n), 查: O(1) | 数组实现的并查集 |
+| 5-2 [并查集 - 节点](src/main/java/unionfind/UnionFind2.java) | 并: O(h), 查: O(h) | 使用子节点指向父节点方式实现并查集 |
+| 5-3 [并查集 - size优化](src/main/java/unionfind/UnionFind3.java) | 并: O(h), 查: O(h) | 并操作将根据size决定归并方向 |
+| 5-4 [并查集 - rank优化](src/main/java/unionfind/UnionFind4.java) | 并: O(h), 查: O(h) | 并操作将根据rank决定归并方向 |
+| 5-5 [并查集 - 路径压缩优化(循环)](src/main/java/unionfind/UnionFind5.java) | 并: O(h), 查: O(h) | 查找操作时附带压缩路径，循环 |
+| 5-6 [并查集 - 路径压缩优化(递归)](src/main/java/unionfind/UnionFind6.java) | 并: O(h), 查: O(h) | 查找操作时附带压缩路径，递归 |
 
 
