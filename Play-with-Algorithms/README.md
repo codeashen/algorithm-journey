@@ -17,5 +17,8 @@
 | 3-3 [优化堆排序 - Heap Sort](src/main/java/heap/HeapSort.java) | O(nlogn) | 不使用而外堆，直接在原数组上进行堆排序<br>注意两个shiftDown的区别 |
 | 3-4 [索引堆](src/main/java/heap/IndexMaxHeap.java) |  | 维护原始索引 |
 | 3-5 [索引堆优化](src/main/java/heap/IndexMaxHeap2.java) |  | 维护反查索引 |
+| **[四、二分搜索树](src/main/java/sort/advance)** | | |
+| 4-1 [二分查找](src/main/java/binarysearchtree/BinarySearch.java) | O(log2n) | 二分查找循环写法和递归写法 |
+| 4-2 [二分搜索树](src/main/java/binarysearchtree/BinarySearchTree.java) |  | 二分搜索树的简单实现 |
 
 
