@@ -81,8 +81,9 @@ public class UnionFind6 implements UnionFind {
             throw new IllegalArgumentException("p is out of bound!");
         }
         // 递归路径压缩
-        parent[p] = find(parent[p]);
-        p = parent[p];
+        if(p != parent[p]) {
+            parent[p] = find(parent[p]);
+        }
         return parent[p];
     }
 }

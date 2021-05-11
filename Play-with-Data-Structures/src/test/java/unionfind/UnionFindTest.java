@@ -25,9 +25,9 @@ public class UnionFindTest {
 //        System.out.println("uf1 性能测试耗时：" + testUF(uf1, m) + "s");
 //        System.out.println("uf2 性能测试耗时：" + testUF(uf2, m) + "s");
         System.out.println("uf3 性能测试耗时：" + testUF(uf3, m) + "s");
-        System.out.println("uf4 性能测试耗时：" + testUF(uf3, m) + "s");
-        System.out.println("uf5 性能测试耗时：" + testUF(uf3, m) + "s");
-        System.out.println("uf6 性能测试耗时：" + testUF(uf3, m) + "s");
+        System.out.println("uf4 性能测试耗时：" + testUF(uf4, m) + "s");
+        System.out.println("uf5 性能测试耗时：" + testUF(uf5, m) + "s");
+        System.out.println("uf6 性能测试耗时：" + testUF(uf6, m) + "s");
     }
 
 
