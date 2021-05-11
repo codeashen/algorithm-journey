@@ -30,5 +30,6 @@
 | **[六、图论](src/main/java/graph)** | | |
 | 6-1 [稀疏图 - 邻接表](src/main/java/graph/SparseGraph.java) |  | 邻接表实现稀疏图 |
 | 6-2 [稠密图 - 邻接矩阵](src/main/java/graph/DenseGraph.java) |  | 邻接矩阵实现稠密图 |
+| 6-3 [求图的连通分量](src/main/java/graph/Components.java) |  | 使用深度优先遍历方式求图的连通分量 |
 
 

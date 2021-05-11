@@ -7,9 +7,16 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class ReadGraph {
-    private Scanner scanner;
 
-    public ReadGraph(Graph graph, String filename) {
+    private static Scanner scanner;
+
+    /**
+     * 将指定文件中节点连接关系（边）的数据添加到图中
+     *
+     * @param graph    带填充边的图
+     * @param filename 连接关系文件名
+     */
+    public static void graph(Graph graph, String filename) {
 
         readFile(filename);
 
@@ -38,11 +45,13 @@ public class ReadGraph {
         }
     }
 
-    private void readFile(String filename) {
+    private static void readFile(String filename) {
         assert filename != null;
-
-        InputStream resourceAsStream = ReadGraph.class.getClassLoader().getResourceAsStream(filename);
-        scanner = new Scanner(resourceAsStream, "UTF-8");
+        InputStream inputStream = ReadGraph.class.getClassLoader().getResourceAsStream(filename);
+        if (inputStream == null) {
+            throw new InputMismatchException("File not found");
+        }
+        scanner = new Scanner(inputStream, "UTF-8");
         scanner.useLocale(Locale.ENGLISH);
     }
 }

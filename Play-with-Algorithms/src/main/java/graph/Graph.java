@@ -37,7 +37,7 @@ public interface Graph {
     boolean hasEdge(int v, int w);
 
     /**
-     * 返回以节点 v 为起点的所有边
+     * 返回以节点 v 为起点指向的所有节点
      *
      * @param v
      * @return

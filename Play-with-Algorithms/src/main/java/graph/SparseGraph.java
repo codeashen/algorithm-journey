@@ -64,7 +64,7 @@ public class SparseGraph implements Graph {
     }
 
     /**
-     * 返回以节点 v 为起点的所有边, O(1)
+     * 返回以节点 v 为起点指向的所有节点, O(1)
      *
      * @param v
      * @return

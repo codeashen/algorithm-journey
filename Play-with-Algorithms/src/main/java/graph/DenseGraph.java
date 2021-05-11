@@ -62,7 +62,7 @@ public class DenseGraph implements Graph {
     }
 
     /**
-     * 返回以节点 v 为起点的所有边, O(n)
+     * 返回以节点 v 为起点指向的所有节点, O(n)
      *
      * @param v
      * @return
