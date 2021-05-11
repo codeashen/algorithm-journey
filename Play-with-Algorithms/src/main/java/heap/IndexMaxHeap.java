@@ -4,8 +4,13 @@ package heap;
  * 最大索引堆
  * <p>
  * 解决以下问题
- * 1. 交换元素频繁
- * 2. 原始数组索引位置元素不可查
+ * 1. 原始数据可能很大，比如 data 里存的是文章，swap 原始数据消耗大
+ * 2. 原始数组 heapify 后，很难索引到原始数据
+ * 注：例如原始数组的索引表示id，heapify之后不能再根据id找到相应的元素了，也不能修改它
+ * <pre>
+ *           0   1   2   3   4   5   6   7   8   9   10    --- 原始索引
+ *  indexes  -   10  9   7   8   5   6   3   1   4   2     --- 真正heapify的是原始索引
+ *     data  -   15  17  19  13  22  16  28  30  41  62    --- 原始数据（不变）
  */
 public class IndexMaxHeap<E extends Comparable> {
 

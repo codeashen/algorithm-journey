@@ -6,6 +6,17 @@ import java.util.Arrays;
  * 最大索引堆优化
  * <p>
  * 优化 {@link IndexMaxHeap#change} 修改索引位置元素操作时，需要花费 O(n) 时间查找 indexes 中位置
+ * <pre>
+ *           0   1   2   3   4   5   6   7   8   9   10   --- 原始索引
+ *  indexes  -   10  9   7   8   5   6   3   1   4   2    --- 真正heapify的是原始索引
+ *  reverse  -   8   10  7   9   5   6   3   4   2   1    --- 反向索引
+ *     data  -   15  17  19  13  22  16  28  30  41  62   --- 原始数据（不变）
+ *
+ *  reverse[i] 表示原始索引 i 在 indexes (堆)中的位置
+ *  有以下性质
+ *      indexes[i] = j, 则 reverse[j] = i
+ *      indexes[reverse[i]] = i
+ *      reverse[indexes[i]] = i
  *
  * @see IndexMaxHeap2#change
  */
