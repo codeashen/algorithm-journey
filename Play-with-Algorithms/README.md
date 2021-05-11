@@ -27,5 +27,8 @@
 | 5-4 [并查集 - rank优化](src/main/java/unionfind/UnionFind4.java) | 并: O(h), 查: O(h) | 并操作将根据rank决定归并方向 |
 | 5-5 [并查集 - 路径压缩优化(循环)](src/main/java/unionfind/UnionFind5.java) | 并: O(h), 查: O(h) | 查找操作时附带压缩路径，循环 |
 | 5-6 [并查集 - 路径压缩优化(递归)](src/main/java/unionfind/UnionFind6.java) | 并: O(h), 查: O(h) | 查找操作时附带压缩路径，递归 |
+| **[六、图论](src/main/java/graph)** | | |
+| 6-1 [稀疏图 - 邻接表](src/main/java/graph/SparseGraph.java) |  | 邻接表实现稀疏图 |
+| 6-2 [稠密图 - 邻接矩阵](src/main/java/graph/DenseGraph.java) |  | 邻接矩阵实现稠密图 |
 
 
