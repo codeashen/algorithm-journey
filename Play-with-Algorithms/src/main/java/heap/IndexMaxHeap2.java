@@ -1,22 +1,27 @@
 package heap;
 
+import java.util.Arrays;
+
 /**
- * 最大索引堆
+ * 最大索引堆优化
  * <p>
- * 解决以下问题
- * 1. 交换元素频繁
- * 2. 原始数组索引位置元素不可查
+ * 优化 {@link IndexMaxHeap#change} 修改索引位置元素操作时，需要花费 O(n) 时间查找 indexes 中位置
+ *
+ * @see IndexMaxHeap2#change
  */
-public class IndexMaxHeap<E extends Comparable> {
+public class IndexMaxHeap2<E extends Comparable> {
 
     protected E[] data;      // 最大索引堆中的数据
     protected int[] indexes; // 最大索引堆中的索引
+    protected int[] reverse; // 最大索引堆中的反向索引, reverse[i] = x 表示索引 i 在 x 的位置
     protected int count;
     protected int capacity;
 
-    public IndexMaxHeap(int capacity) {
+    public IndexMaxHeap2(int capacity) {
         data = (E[]) new Comparable[capacity + 1];
         indexes = new int[capacity + 1];
+        reverse = new int[capacity + 1];
+        Arrays.fill(reverse, 0);    // 反向索引初始全部填 0
         count = 0;
         this.capacity = capacity;
     }
@@ -39,9 +44,13 @@ public class IndexMaxHeap<E extends Comparable> {
         assert count + 1 <= capacity;           // 确保容量
         assert i + 1 >= 1 && i + 1 <= capacity; // 确保不越界
 
+        // 再插入一个新元素前,还需要保证索引i所在的位置是没有元素的。
+        assert !contain(i);
+
         i++;  // 数组头部冗余空元素
         data[i] = e;
         indexes[count + 1] = i;
+        reverse[i] = count + 1;  // 与上面的 indexes 相反，用于反差
         count++;
 
         shiftUp(count);
@@ -66,6 +75,7 @@ public class IndexMaxHeap<E extends Comparable> {
 
         int index = indexes[1] - 1;
         swapIndexes(1, count);
+        reverse[indexes[count]] = 0;
         count--;
         shiftDown(1);
 
@@ -79,6 +89,7 @@ public class IndexMaxHeap<E extends Comparable> {
      * @return
      */
     public E get(int index) {
+        assert contain(index);
         assert index + 1 >= 1 && index + 1 <= capacity;
         return data[index + 1];
     }
@@ -109,17 +120,34 @@ public class IndexMaxHeap<E extends Comparable> {
      * @param e 新元素
      */
     public void change(int i, E e) {
+        assert contain(i);
         i++;
         data[i] = e;
 
         // 找到索引 j, 满足 indexes[j] = i, j 表示 data[i] 在堆中的位置
-        for (int j = 1; j <= count; j++) {
-            if (indexes[j] == i) {
-                shiftUp(j);
-                shiftDown(j);  // 下沉和上浮实际只会执行一个，所以 j 不会乱
-                return;
-            }
-        }
+        // for (int j = 1; j <= count; j++) {
+        //     if (indexes[j] == i) {
+        //         shiftUp(j);
+        //         shiftDown(j);  // 下沉和上浮实际只会执行一个，所以 j 不会乱
+        //         return;
+        //     }
+        // }
+
+        // 有了 reverse 之后,
+        // 我们可以非常简单的通过reverse直接定位索引i在indexes中的位置
+        shiftUp(reverse[i]);
+        shiftDown(reverse[i]);
+    }
+
+    /**
+     * 看索引 i 所在的位置是否存在元素
+     *
+     * @param i
+     * @return
+     */
+    private boolean contain(int i) {
+        assert i + 1 >= 1 && i + 1 <= capacity;
+        return reverse[i + 1] != 0;
     }
 
     /**
@@ -132,6 +160,9 @@ public class IndexMaxHeap<E extends Comparable> {
         int t = indexes[i];
         indexes[i] = indexes[j];
         indexes[j] = t;
+
+        reverse[indexes[i]] = i;
+        reverse[indexes[j]] = j;
     }
 
     /**
