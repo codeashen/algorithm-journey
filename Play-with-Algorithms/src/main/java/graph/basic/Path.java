@@ -1,4 +1,4 @@
-package graph;
+package graph.basic;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  */
 public class Path {
 
-    private Graph graph;        // 图的引用
+    private Graph G;            // 图的引用
     private int s;              // 起始点
     private boolean[] visited;  // 记录dfs的过程中顶点是否被访问
     private int[] from;         // 记录路径，from[i] 表示查找路径上 i 的上一个顶点
@@ -19,17 +19,17 @@ public class Path {
     /**
      * 构造方法，深度优先遍历记录图中各顶点遍历路径
      *
-     * @param graph 图
-     * @param s     遍历起始顶点
+     * @param G 图
+     * @param s 遍历起始顶点
      */
-    public Path(Graph graph, int s) {
+    public Path(Graph G, int s) {
         // 算法初始化
-        this.graph = graph;
-        assert s >= 0 && s < graph.V();
+        this.G = G;
+        assert s >= 0 && s < G.V();
 
-        visited = new boolean[graph.V()];
-        from = new int[graph.V()];
-        for (int i = 0; i < graph.V(); i++) {
+        visited = new boolean[G.V()];
+        from = new int[G.V()];
+        for (int i = 0; i < G.V(); i++) {
             visited[i] = false;
             from[i] = -1;
         }
@@ -46,10 +46,10 @@ public class Path {
      */
     private void dfs(int v) {
         visited[v] = true;
-        for (Integer node : graph.adj(v)) {
-            if (!visited[node]) {
-                from[node] = v;
-                dfs(node);
+        for (Integer i : G.adj(v)) {
+            if (!visited[i]) {
+                from[i] = v;
+                dfs(i);
             }
         }
     }
@@ -61,7 +61,7 @@ public class Path {
      * @return
      */
     public boolean hasPath(int w) {
-        assert w >= 0 && w < graph.V();
+        assert w >= 0 && w < G.V();
         return visited[w];
     }
 

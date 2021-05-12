@@ -1,4 +1,4 @@
-package graph;
+package graph.basic;
 
 import org.junit.Test;
 

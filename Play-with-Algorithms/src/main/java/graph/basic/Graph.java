@@ -1,4 +1,4 @@
-package graph;
+package graph.basic;
 
 /**
  * 图接口
