@@ -11,7 +11,7 @@ public class SparseGraph implements Graph {
     private int n;  // 顶点数
     private int m;  // 边数量
     private boolean directed;   // 是否为有向图
-    private List<Integer>[] g;  // 图的具体数据
+    private List<Integer>[] g;  // 图的具体数据，g[i] 表示顶点 i 出发连接的顶点列表
 
     public SparseGraph(int n, boolean directed) {
         assert n >= 0;

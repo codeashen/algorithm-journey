@@ -11,7 +11,7 @@ public class DenseGraph implements Graph {
     private int n;  // 顶点数
     private int m;  // 边数量
     private boolean directed;   // 是否为有向图
-    private boolean[][] g;      // 图的具体数据
+    private boolean[][] g;      // 图的具体数据，g[i][j] 表示顶点 i 到 j 是否有边
 
     public DenseGraph(int n, boolean directed) {
         assert n > 0;
