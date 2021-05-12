@@ -6,18 +6,18 @@ package graph;
 public interface Graph {
 
     /**
-     * 返回图中节点数
+     * 返回图中顶点数
      *
      * @return
      */
-    int nodeCount();
+    int V();
 
     /**
      * 返回图中边数
      *
      * @return
      */
-    int edgeCount();
+    int E();
 
     /**
      * 添加一条从 v 指向 w 的边
@@ -37,7 +37,7 @@ public interface Graph {
     boolean hasEdge(int v, int w);
 
     /**
-     * 返回以节点 v 为起点指向的所有节点
+     * 返回以顶点 v 为起点指向的所有顶点
      *
      * @param v
      * @return

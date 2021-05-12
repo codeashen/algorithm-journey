@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class SparseGraph implements Graph {
 
-    private int n;  // 节点数
+    private int n;  // 顶点数
     private int m;  // 边数量
     private boolean directed;   // 是否为有向图
     private List<Integer>[] g;  // 图的具体数据
@@ -24,11 +24,11 @@ public class SparseGraph implements Graph {
         }
     }
 
-    public int nodeCount() {
+    public int V() {
         return n;
     }
 
-    public int edgeCount() {
+    public int E() {
         return m;
     }
 
@@ -64,7 +64,7 @@ public class SparseGraph implements Graph {
     }
 
     /**
-     * 返回以节点 v 为起点指向的所有节点, O(1)
+     * 返回以顶点 v 为起点指向的所有顶点, O(1)
      *
      * @param v
      * @return

@@ -28,8 +28,9 @@
 | 5-5 [并查集 - 路径压缩优化(循环)](src/main/java/unionfind/UnionFind5.java) | 并: O(h), 查: O(h) | 查找操作时附带压缩路径，循环 |
 | 5-6 [并查集 - 路径压缩优化(递归)](src/main/java/unionfind/UnionFind6.java) | 并: O(h), 查: O(h) | 查找操作时附带压缩路径，递归 |
 | **[六、图论](src/main/java/graph)** | | |
-| 6-1 [稀疏图 - 邻接表](src/main/java/graph/SparseGraph.java) |  | 邻接表实现稀疏图 |
-| 6-2 [稠密图 - 邻接矩阵](src/main/java/graph/DenseGraph.java) |  | 邻接矩阵实现稠密图 |
+| 6-1 [稀疏图 - 邻接表](src/main/java/graph/SparseGraph.java) | 深度优先遍历: O(V+E) | 邻接表实现稀疏图 |
+| 6-2 [稠密图 - 邻接矩阵](src/main/java/graph/DenseGraph.java) | 深度优先遍历: O(V^2) | 邻接矩阵实现稠密图 |
 | 6-3 [求图的连通分量](src/main/java/graph/Components.java) |  | 使用深度优先遍历方式求图的连通分量 |
+| 6-4 [求某节点的连通路径](src/main/java/graph/Path.java) |  | 使用深度优先遍历方式求图中某一节点的连通路径 |
 
 

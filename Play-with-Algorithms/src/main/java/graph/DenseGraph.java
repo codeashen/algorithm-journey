@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class DenseGraph implements Graph {
 
-    private int n;  // 节点数
+    private int n;  // 顶点数
     private int m;  // 边数量
     private boolean directed;   // 是否为有向图
     private boolean[][] g;      // 图的具体数据
@@ -18,15 +18,15 @@ public class DenseGraph implements Graph {
         this.n = n;
         this.m = 0;  // 初始化没有任何边
         this.directed = directed;
-        // 初始化 n*n 的布尔矩阵，每个 g[i][j] 均为 false，表示所有节点不向通
+        // 初始化 n*n 的布尔矩阵，每个 g[i][j] 均为 false，表示所有顶点不向通
         g = new boolean[n][n];
     }
 
-    public int nodeCount() {
+    public int V() {
         return n;
     }
 
-    public int edgeCount() {
+    public int E() {
         return m;
     }
 
@@ -62,7 +62,7 @@ public class DenseGraph implements Graph {
     }
 
     /**
-     * 返回以节点 v 为起点指向的所有节点, O(n)
+     * 返回以顶点 v 为起点指向的所有顶点, O(n)
      *
      * @param v
      * @return

@@ -24,7 +24,7 @@ public class ReadGraph {
             int V = scanner.nextInt();
             if (V < 0)
                 throw new IllegalArgumentException("number of vertices in a Graph must be nonnegative");
-            assert V == graph.nodeCount();
+            assert V == graph.V();
 
             int E = scanner.nextInt();
             if (E < 0)
