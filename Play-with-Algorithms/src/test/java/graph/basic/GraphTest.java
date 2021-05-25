@@ -10,7 +10,7 @@ public class GraphTest {
     @Test
     public void test() {
         // 使用两种图的存储方式读取testG1.txt文件
-        String filename = "testG1.txt";
+        String filename = "graph/basic/testG1.txt";
         SparseGraph g1 = new SparseGraph(13, false);
         ReadGraph.graph(g1, filename);
         System.out.println("test G1 in Sparse Graph:");
@@ -26,7 +26,7 @@ public class GraphTest {
         System.out.println();
 
         // 使用两种图的存储方式读取testG2.txt文件
-        filename = "testG2.txt";
+        filename = "graph/basic/testG2.txt";
         SparseGraph g3 = new SparseGraph(6, false);
         ReadGraph.graph(g3, filename);
         System.out.println("test G2 in Sparse Graph:");

@@ -4,9 +4,12 @@ import org.junit.Test;
 
 public class ShortestPathTest {
 
+    /**
+     * 测试广度优先遍历求最短路径
+     */
     @Test
     public void path() {
-        String filename = "testG.txt";
+        String filename = "graph/basic/testG.txt";
         SparseGraph g = new SparseGraph(7, false);
         ReadGraph.graph(g, filename);
         g.show();
