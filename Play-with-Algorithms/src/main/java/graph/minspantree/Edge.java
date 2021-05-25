@@ -22,6 +22,12 @@ public class Edge<Weight extends Number & Comparable> implements Comparable<Edge
         this.weight = weight;
     }
 
+    public Edge(Edge<Weight> e) {
+        this.a = e.a;
+        this.b = e.b;
+        this.weight = e.weight;
+    }
+
     /**
      * 返回第一个顶点
      *

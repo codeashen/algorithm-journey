@@ -34,5 +34,6 @@
 | 6-4 [求某顶点的连通路径](src/main/java/graph/basic/Path.java) |  | 使用深度优先遍历方式求图中某一顶点到其他顶点的路径 |
 | 6-5 [求最短路径](src/main/java/graph/basic/ShortestPath.java) |  | 使用广度度优先遍历方式求图中某一顶点到其他顶点的最短路径 |
 | **七、[最小生成树](src/main/java/graph/minspantree)** | | |
-| 7-1 [稠密带权图 - 邻接矩阵](src/main/java/graph/minspantree/DenseWeightedGraph.java) |  | 邻接表实现稀疏图 |
+| 7-1 [稠密带权图 - 邻接矩阵](src/main/java/graph/minspantree/DenseWeightedGraph.java) |  | 邻接矩阵实现稠密带权图 |
+| 7-2 [稀疏带权图 - 邻接表](src/main/java/graph/minspantree/SparseWeightedGraph.java) |  | 邻接表实现稀疏带权图 |
 
