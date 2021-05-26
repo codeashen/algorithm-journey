@@ -56,7 +56,7 @@
 | 11-3 AVL集合 | 基于AVL树的集合实现 | [AVLSet](src/main/java/set/AVLSet.java) |
 | [**十二、红黑树**](#红黑树) |  |  |
 | 12-1 红黑树 | 左倾红黑树简单实现 | [RedBlackTree](src/main/java/redblacktree/RedBlackTree.java) |
-| 十三、哈希表 |  |  |
+| **十三、哈希表** |  |  |
 | 13-1 字符串中的第一个唯一字符 | [LeetCode(387)](https://leetcode-cn.com/problems/first-unique-character-in-a-string/) | [Solution](src/main/java/hashtable/leetcode/Solution.java) |
 | 13-2 哈希表 | 哈希表简单实现，数组+红黑树 | [HashTable](src/main/java/hashtable/HashTable.java) |
 
@@ -92,7 +92,7 @@
 
 ![image-20210422104222299](assert/image-20210422104222299.png)
 
-二叉堆中元素在数组中索引为 i，改元素的父子节点在数组中的索引有以下关系
+二叉堆中元素在数组中索引为 i，该元素的父子节点在数组中的索引有以下关系
 
 ```
 parent(i) = i/2
@@ -104,7 +104,7 @@ right(i) = 2*i + 1
 
 ![image-20210422104939037](assert/image-20210422104939037.png)
 
-二叉堆中元素在数组中索引为 i，改元素的父子节点在数组中的索引有以下关系
+二叉堆中元素在数组中索引为 i，该元素的父子节点在数组中的索引有以下关系
 
 ```
 parent(i) = (i - 1)/2
