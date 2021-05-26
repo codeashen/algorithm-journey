@@ -149,7 +149,7 @@ public class IndexMinHeap<E extends Comparable> {
      * @param i
      * @return
      */
-    private boolean contain(int i) {
+    public boolean contain(int i) {
         assert i + 1 >= 1 && i + 1 <= capacity;
         return reverse[i + 1] != 0;
     }

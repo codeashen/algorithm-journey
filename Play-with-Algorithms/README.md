@@ -40,6 +40,7 @@
 | 7-4 [优化 Prim 求最小生成树](src/main/java/minspantree/PrimMST.java) | O(E log(V)) | 借助最小索引堆，逐个访问节点，将临边中权重最小者的权重和另一顶点存入索引堆，并记录边，<br>然后取出最小的索引，取出记录的边，再继续访问这个边的另一顶点 |
 | 7-5 [Kruskal 求最小生成树](src/main/java/minspantree/KruskalMST.java) | O(E log(E)) | 将所有边排序，从小到大取边，只要边不成环，就将改边加入最小生成树，否则丢弃，到了有 V-1 条边最小生成树就构建完成 |
 | **八、[最短路径](src/main/java/shortestpath)** | | |
+| 8-1 [Dijkstra 算法求最短路径](src/main/java/shortestpath/Dijkstra.java) | O(E log(V)) | 前提：图中不能有负权边 |
 
 
 
