@@ -1,5 +1,6 @@
 package minspantree;
 
+import heap.MinHeap;
 import unionfind.UnionFind5;
 
 import java.util.ArrayList;

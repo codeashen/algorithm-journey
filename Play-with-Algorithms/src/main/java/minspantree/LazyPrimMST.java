@@ -1,5 +1,7 @@
 package minspantree;
 
+import heap.MinHeap;
+
 import java.util.ArrayList;
 import java.util.List;
 

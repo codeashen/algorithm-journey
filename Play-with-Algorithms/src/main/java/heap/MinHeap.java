@@ -1,4 +1,4 @@
-package minspantree;
+package heap;
 
 /**
  * 最小堆，首位留空
