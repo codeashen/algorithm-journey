@@ -1,4 +1,4 @@
-package graph.minspantree;
+package minspantree;
 
 /**
  * 带权图接口

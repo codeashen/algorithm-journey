@@ -1,4 +1,4 @@
-package graph.basic;
+package graph;
 
 /**
  * 使用深度优先遍历，计算图的连通分量，判断两个顶点是否连通

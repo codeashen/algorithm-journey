@@ -1,4 +1,4 @@
-package graph.basic;
+package graph;
 
 import org.junit.Test;
 
@@ -10,7 +10,7 @@ public class ComponentsTest {
     @Test
     public void componentsTest() {
         // TestG1.txt
-        String filename1 = "graph/basic/testG1.txt";
+        String filename1 = "graph/testG1.txt";
         SparseGraph g1 = new SparseGraph(13, false);
         ReadGraph.graph(g1, filename1);
         Components component1 = new Components(g1);
@@ -18,7 +18,7 @@ public class ComponentsTest {
         System.out.println();
 
         // TestG2.txt
-        String filename2 = "graph/basic/testG2.txt";
+        String filename2 = "graph/testG2.txt";
         SparseGraph g2 = new SparseGraph(6, false);
         ReadGraph.graph(g2, filename2);
         Components component2 = new Components(g2);

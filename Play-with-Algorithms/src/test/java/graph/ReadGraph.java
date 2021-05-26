@@ -1,4 +1,4 @@
-package graph.basic;
+package graph;
 
 import java.io.InputStream;
 import java.util.InputMismatchException;

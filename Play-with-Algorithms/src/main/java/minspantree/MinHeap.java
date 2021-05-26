@@ -1,4 +1,4 @@
-package graph.minspantree;
+package minspantree;
 
 /**
  * 最小堆，首位留空

@@ -1,4 +1,4 @@
-package graph.minspantree;
+package minspantree;
 
 import unionfind.UnionFind5;
 

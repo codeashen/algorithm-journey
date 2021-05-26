@@ -1,4 +1,4 @@
-package graph.minspantree;
+package minspantree;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -18,19 +18,19 @@ public class MSTTest {
     @Before
     public void init() {
         // 初始化测试图
-        String filename1 = "graph/minspantree/testG1.txt";
+        String filename1 = "minspantree/testG1.txt";
         g1 = new SparseWeightedGraph<>(8, false);
         ReadWeightedGraph.graph(g1, filename1);
 
-        String filename2 = "graph/minspantree/testG2.txt";
+        String filename2 = "minspantree/testG2.txt";
         g2 = new SparseWeightedGraph<>(250, false);
         ReadWeightedGraph.graph(g2, filename2);
 
-        String filename3 = "graph/minspantree/testG3.txt";
+        String filename3 = "minspantree/testG3.txt";
         g3 = new SparseWeightedGraph<>(1000, false);
         ReadWeightedGraph.graph(g3, filename3);
 
-        String filename4 = "graph/minspantree/testG4.txt";
+        String filename4 = "minspantree/testG4.txt";
         g4 = new SparseWeightedGraph<>(10000, false);
         ReadWeightedGraph.graph(g4, filename4);
     }

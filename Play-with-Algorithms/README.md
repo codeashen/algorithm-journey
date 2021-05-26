@@ -28,17 +28,17 @@
 | 5-5 [并查集 - 路径压缩优化(循环)](src/main/java/unionfind/UnionFind5.java) | 并: O(h), 查: O(h) | 查找操作时附带压缩路径，循环 |
 | 5-6 [并查集 - 路径压缩优化(递归)](src/main/java/unionfind/UnionFind6.java) | 并: O(h), 查: O(h) | 查找操作时附带压缩路径，递归 |
 | **六、[图论基础](src/main/java/graph/basic)** | | |
-| 6-1 [稀疏图 - 邻接表](src/main/java/graph/basic/SparseGraph.java) | 深度优先遍历: O(V+E) | 邻接表实现稀疏图 |
-| 6-2 [稠密图 - 邻接矩阵](src/main/java/graph/basic/DenseGraph.java) | 深度优先遍历: O(V^2) | 邻接矩阵实现稠密图 |
-| 6-3 [求图的连通分量](src/main/java/graph/basic/Components.java) |  | 使用深度优先遍历方式求图的连通分量 |
-| 6-4 [求某顶点的连通路径](src/main/java/graph/basic/Path.java) |  | 使用深度优先遍历方式求图中某一顶点到其他顶点的路径 |
-| 6-5 [求最短路径](src/main/java/graph/basic/ShortestPath.java) |  | 使用广度度优先遍历方式求图中某一顶点到其他顶点的最短路径 |
-| **七、[最小生成树](src/main/java/graph/minspantree)** | | |
-| 7-1 [稠密带权图 - 邻接矩阵](src/main/java/graph/minspantree/DenseWeightedGraph.java) |  | 邻接矩阵实现稠密带权图 |
-| 7-2 [稀疏带权图 - 邻接表](src/main/java/graph/minspantree/SparseWeightedGraph.java) |  | 邻接表实现稀疏带权图 |
-| 7-3 [Lazy Prim 求最小生成树](src/main/java/graph/minspantree/LazyPrimMST.java) | O(ElogE) | 借助最小堆，逐个访问节点，将临边加入最小堆，然后取出最小的横切边，<br>再访问将横切边中未访问的顶点 |
-| 7-4 [优化 Prim 求最小生成树](src/main/java/graph/minspantree/PrimMST.java) | O(ElogV) | 借助最小索引堆，逐个访问节点，将临边中权重最小者的权重和另一顶点存入索引堆，并记录边，<br>然后取出最小的索引，取出记录的边，再继续访问这个边的另一顶点 |
-| 7-5 [Kruskal 求最小生成树](src/main/java/graph/minspantree/KruskalMST.java) | O(ElogE) | 将所有边排序，从小到大取边，只要边不成环，就将改边加入最小生成树，否则丢弃，到了有 V-1 条边最小生成树就构建完成 |
+| 6-1 [稀疏图 - 邻接表](src/main/java/graph/SparseGraph.java) | 深度优先遍历: O(V+E) | 邻接表实现稀疏图 |
+| 6-2 [稠密图 - 邻接矩阵](src/main/java/graph/DenseGraph.java) | 深度优先遍历: O(V^2) | 邻接矩阵实现稠密图 |
+| 6-3 [求图的连通分量](src/main/java/graph/Components.java) |  | 使用深度优先遍历方式求图的连通分量 |
+| 6-4 [求某顶点的连通路径](src/main/java/graph/Path.java) |  | 使用深度优先遍历方式求图中某一顶点到其他顶点的路径 |
+| 6-5 [求最短路径](src/main/java/graph/ShortestPath.java) |  | 使用广度度优先遍历方式求图中某一顶点到其他顶点的最短路径 |
+| **七、[最小生成树](src/main/java/minspantree)** | | |
+| 7-1 [稠密带权图 - 邻接矩阵](src/main/java/minspantree/DenseWeightedGraph.java) |  | 邻接矩阵实现稠密带权图 |
+| 7-2 [稀疏带权图 - 邻接表](src/main/java/minspantree/SparseWeightedGraph.java) |  | 邻接表实现稀疏带权图 |
+| 7-3 [Lazy Prim 求最小生成树](src/main/java/minspantree/LazyPrimMST.java) | O(ElogE) | 借助最小堆，逐个访问节点，将临边加入最小堆，然后取出最小的横切边，<br>再访问将横切边中未访问的顶点 |
+| 7-4 [优化 Prim 求最小生成树](src/main/java/minspantree/PrimMST.java) | O(ElogV) | 借助最小索引堆，逐个访问节点，将临边中权重最小者的权重和另一顶点存入索引堆，并记录边，<br>然后取出最小的索引，取出记录的边，再继续访问这个边的另一顶点 |
+| 7-5 [Kruskal 求最小生成树](src/main/java/minspantree/KruskalMST.java) | O(ElogE) | 将所有边排序，从小到大取边，只要边不成环，就将改边加入最小生成树，否则丢弃，到了有 V-1 条边最小生成树就构建完成 |
 
 
 

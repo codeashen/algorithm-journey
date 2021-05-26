@@ -1,4 +1,4 @@
-package graph.minspantree;
+package minspantree;
 
 import java.io.InputStream;
 import java.util.InputMismatchException;

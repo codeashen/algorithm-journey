@@ -1,23 +1,23 @@
-package graph.basic;
+package graph;
 
 import org.junit.Test;
 
-public class PathTest {
+public class ShortestPathTest {
 
     /**
-     * 测试深度优先遍历求路径
+     * 测试广度优先遍历求最短路径
      */
     @Test
     public void path() {
-        String filename = "graph/basic/testG.txt";
+        String filename = "graph/testG.txt";
         SparseGraph g = new SparseGraph(7, false);
         ReadGraph.graph(g, filename);
         g.show();
         System.out.println();
 
-        Path path = new Path(g, 0);
+        ShortestPath path = new ShortestPath(g, 0);
         System.out.println("Path from 0 to 6 : ");
         path.showPath(6);
+        System.out.println("Length from 0 to 6 : " + path.length(6));
     }
-
 }
