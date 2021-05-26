@@ -36,7 +36,8 @@
 | **七、[最小生成树](src/main/java/graph/minspantree)** | | |
 | 7-1 [稠密带权图 - 邻接矩阵](src/main/java/graph/minspantree/DenseWeightedGraph.java) |  | 邻接矩阵实现稠密带权图 |
 | 7-2 [稀疏带权图 - 邻接表](src/main/java/graph/minspantree/SparseWeightedGraph.java) |  | 邻接表实现稀疏带权图 |
-| 7-3 [Lazy Prim 求最小生成树](src/main/java/graph/minspantree/LazyPrimMST.java) | O(ElogE) | 借助最小堆，逐个访问节点，将临边加入最小堆，然后取出最小的heng横切边，<br>再访问将横切边中未访问的顶点 |
+| 7-3 [Lazy Prim 求最小生成树](src/main/java/graph/minspantree/LazyPrimMST.java) | O(ElogE) | 借助最小堆，逐个访问节点，将临边加入最小堆，然后取出最小的横切边，<br>再访问将横切边中未访问的顶点 |
+| 7-4 [优化 Prim 求最小生成树](src/main/java/graph/minspantree/PrimMST.java) | O(ElogV) | 借助最小索引堆，逐个访问节点，将临边中权重最小者的权重和另一顶点存入索引堆，并记录边，<br>然后取出最小的索引，取出记录的边，再继续访问这个边的另一顶点 |
 
 
 
