@@ -41,7 +41,7 @@
 | 7-5 [Kruskal 求最小生成树](src/main/java/minspantree/KruskalMST.java) | O(E log(E)) | 将所有边排序，从小到大取边，只要边不成环，就将改边加入最小生成树，否则丢弃，到了有 V-1 条边最小生成树就构建完成 |
 | **八、[最短路径](src/main/java/shortestpath)** | | |
 | 8-1 [Dijkstra 算法求最短路径](src/main/java/shortestpath/Dijkstra.java) | O(E log(V)) | 前提：图中不能有负权边 |
-
+| 8-2 [Bellman Ford 算法求最短路径](src/main/java/shortestpath/BellmanFord.java) | O(EV) | 前提：图中不能有负权环<br>如果一个图没有负权环，从一点到另外一点的最短路径，最多经过所有的 V 个顶点，有 V-1 条边，否则，存在顶点经过了两次，既存在负权环 |
 
 
 ## 六、图论基础
