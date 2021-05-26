@@ -73,4 +73,23 @@ public class MSTTest {
         System.out.println("take time: " + (endTime - startTime) + " ms");
     }
 
+    /**
+     * Kruskal 算法，求最小生成树
+     */
+    @Test
+    public void kruskal() {
+        long startTime = System.currentTimeMillis();
+
+        System.out.println("Test Kruskal MST:");
+        KruskalMST<Double> kruskalMST = new KruskalMST<Double>(g1);
+        List<Edge<Double>> mst = kruskalMST.mstEdges();
+        for (int i = 0; i < mst.size(); i++) {
+            System.out.println(mst.get(i));
+        }
+        System.out.println("The Kruskal weight is: " + kruskalMST.result());
+
+        long endTime = System.currentTimeMillis();
+        System.out.println("take time: " + (endTime - startTime) + " ms");
+    }
+
 }
