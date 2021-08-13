@@ -58,7 +58,7 @@ public class QuickSort3 {
                 lt++;
             } else if (arr[i].compareTo(v) > 0) {
                 swap(arr, i, gt - 1);
-                gt--;   // 注意，此时从待考察区间右端元素换到了 i 处，不需要 i--
+                gt--;   // 注意，此时从待考察区间右端元素换到了 i 处，不需要 i++
             } else {
                 i++;
             }

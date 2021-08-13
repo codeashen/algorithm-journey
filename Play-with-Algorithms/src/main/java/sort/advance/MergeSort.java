@@ -39,16 +39,16 @@ public class MergeSort {
      * @param r   归并右端点
      */
     private static void merge(Comparable[] arr, int l, int mid, int r) {
-        // 复制带归并区间的副本，存放于 tempArr 不变
+        // 复制待归并区间的副本，存放于 tempArr 不变
         Comparable[] tempArr = Arrays.copyOfRange(arr, l, r + 1);
 
-        // 初始化，i指向左半部分起始索引l；j指向右半部分起始索引mid+1
+        // 初始化, i 指向左半部分起始索引 l; j 指向右半部分起始索引 mid+1
         int i = l, j = mid + 1;
-        // 依次将比较 tempArr 左右部分的元素，讲较小的填入 arr 的索引 k处
+        // 依次将比较 tempArr 左右部分的元素，将较小的填入 arr 的索引 k 处
         for (int k = l; k <= r; k++) {
             // 考虑左右两部分其中一部分已经全部处理完的情况
             if (i > mid) {  // 左半部分全部处理完
-                arr[k] = tempArr[j - l];  // l是偏移量
+                arr[k] = tempArr[j - l];  // l 是偏移量
                 j++;
                 continue;
             } else if (j > r) {  // 右半部分已经全部处理完
