@@ -5,7 +5,10 @@ package timecomplexity;
  */
 public class CommonTimeComplexity {
 
-    // ========== O(1) ==========
+    /**
+     * 交换数据
+     * O(1)
+     */
     private static void swap(Object[] arr, int i, int j) {
         assert i > 0 || i < arr.length;
         assert j > 0 || j < arr.length;
@@ -15,7 +18,10 @@ public class CommonTimeComplexity {
         arr[j] = temp;
     }
 
-    // ========== O(n) ==========
+    /**
+     * 1~n 求和
+     * O(n)
+     */
     private static int sum(int n) {
         assert n >= 0;
 
@@ -26,7 +32,10 @@ public class CommonTimeComplexity {
         return ret;
     }
 
-    // ========== O(n) ==========
+    /**
+     * 数组翻转
+     * O(n)
+     */
     private static void reverse(Object[] arr) {
         int n = arr.length;
         for (int i = 0; i < n / 2; i++) {
@@ -34,7 +43,10 @@ public class CommonTimeComplexity {
         }
     }
 
-    // ========== O(n^2) ==========
+    /**
+     * 选择排序
+     * O(n^2)
+     */
     private static void selectionSort(Comparable[] arr, int n) {
         for (int i = 0; i < n; i++) {
             int minIndex = i;
@@ -47,7 +59,10 @@ public class CommonTimeComplexity {
         }
     }
 
-    // ========== O(n) ==========
+    /**
+     * 可变循环 + 常数循环
+     * O(n)
+     */
     private static void printInformation(int n) {
         for (int i = 1; i <= n; i++) {
             // 内层常数级循环，所以即使双层循环，时间复杂度也是 O(n)
@@ -57,7 +72,10 @@ public class CommonTimeComplexity {
         }
     }
 
-    // ========== O(logn) ==========
+    /**
+     * 二分查找
+     * O(logn)
+     */
     private static int binarySearch(Comparable[] arr, int n, int target) {
         int l = 0, r = n - 1;
         while (l <= r) {
@@ -73,7 +91,10 @@ public class CommonTimeComplexity {
         return -1;
     }
 
-    // ========== O(logn) ==========
+    /**
+     * int 转 字符串
+     * O(logn)
+     */
     private static String intToString(int num) {
         StringBuilder sb = new StringBuilder("");
         String sign = "+";
@@ -99,7 +120,9 @@ public class CommonTimeComplexity {
         }
     }
 
-    // ========== O(nlogn) ==========
+    /**
+     * O(nlogn)
+     */
     private static void hello(int n) {
         // 第一层循环, sz 每次都乘 2, 所以循环次数 sz^x=n  ->  x=logsz(n)
         // 所以外层循环是 log(n) 级别的, 整体操作是 O(nlogn) 级别的
@@ -110,7 +133,10 @@ public class CommonTimeComplexity {
         }
     }
 
-    // ========== O(sqrt(n)) ==========
+    /**
+     * 判断是不是素数
+     * O(sqrt(n))
+     */
     private static boolean isPrime2(int num) {
         // 判断 num 是不是素数
         if (num <= 1) return false;

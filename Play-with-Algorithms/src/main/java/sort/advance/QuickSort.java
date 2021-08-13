@@ -27,7 +27,7 @@ public class QuickSort {
     }
 
     /**
-     * 对数组 arr[l, r] 区间进行partition操作。
+     * 对数组 arr[l, r] 区间进行 partition 操作。
      * 返回索引 p, 使得 arr[l, p-1] < arr[p] ; arr[p+1, r] > arr[p]。
      * 即以索引 p 为边界，左边元素小于 arr[p]，右边元素大于 arr[p]
      *
