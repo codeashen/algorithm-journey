@@ -9,12 +9,14 @@
 | 1.4 [递归算法时间复杂度](#1.4 递归算法时间复杂度) | [Java代码](src/main/java/timecomplexity/Recursion.java) |  |
 | **二、数组** | [章节代码](src/main/java/array) | |
 | 2.1 二分搜索 | [Java代码](src/main/java/array/binarysearch/BinarySearch.java) | |
-| [2.2 移动零](https://leetcode-cn.com/problems/move-zeroes/) | [Java代码](src/main/java/array/leetcode/MoveZeroes.java) | leetcode 283 |
-| [2.3 移除元素](https://leetcode-cn.com/problems/remove-element/) | [Java代码](src/main/java/array/leetcode/MoveZeroes.java) | leetcode 27 |
-| [2.4 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/) | [Java代码](src/main/java/array/leetcode/MoveZeroes.java) | leetcode 26 |
+| [2.2 移动零](https://leetcode-cn.com/problems/move-zeroes/) | [Java代码](src/main/java/array/leetcode/MoveZeroes.java) | |
+| [2.3 移除元素](https://leetcode-cn.com/problems/remove-element/) | [Java代码](src/main/java/array/leetcode/MoveZeroes.java) | |
+| [2.4 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/) | [Java代码](src/main/java/array/leetcode/MoveZeroes.java) | |
 | [2.5 删除有序数组中的重复项 II](https://leetcode-cn.com/problems/move-zeroes/) | [Java代码](src/main/java/array/leetcode/MoveZeroes.java) | |
-| [2.6 移动零](https://leetcode-cn.com/problems/move-zeroes/) | [Java代码](src/main/java/array/leetcode/MoveZeroes.java) | |
-| [2.7 移动零](https://leetcode-cn.com/problems/move-zeroes/) | [Java代码](src/main/java/array/leetcode/MoveZeroes.java) | |
+| [2.6 颜色分类](https://leetcode-cn.com/problems/sort-colors/) | [Java代码](src/main/java/array/leetcode/SortColors.java) | |
+| [2.7 合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/) | [Java代码](src/main/java/array/leetcode/MergeSortedArray.java) | |
+| [2.8 数组中的第 K 个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) | [Java代码](src/main/java/array/leetcode/KthLargestElementInAnArray.java) | |
+| [2.9 两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/) | [Java代码](src/main/java/array/leetcode/TwoSum2.java) | |
 
 
 ## 一、复杂度分析
