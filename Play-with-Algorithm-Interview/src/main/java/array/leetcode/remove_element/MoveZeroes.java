@@ -1,4 +1,4 @@
-package array.leetcode;
+package array.leetcode.remove_element;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,14 +48,15 @@ public class MoveZeroes {
     public static void solution2(int[] nums) {
         // 标识临界索引
         int k = 0;
-        // 遍历将非 0 元素放到前面
+        
+        // 第一次完全遍历，将非 0 元素填充到前面，同时维护 k
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != 0) {
                 nums[k] = nums[i];
                 k++;
             }
         }
-        // 临界索引后填充 0
+        // 从 k 开始遍历，填充 0
         for (int i = k; i < nums.length; i++) {
             nums[i] = 0;
         }
@@ -67,7 +68,9 @@ public class MoveZeroes {
      * 空间复杂度: O(1)
      */
     public static void solution3(int[] nums) {
+        // k 指向当前第一个 0 元素
         int k = 0;
+        // 完全遍历，如果遇到非 0 元素，和 k 指向的 0 元素交换，k++
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != 0) {
                 swap(nums, i, k);
@@ -77,7 +80,7 @@ public class MoveZeroes {
     }
 
     /**
-     * 在 solution3 的基础上避免自己与自己交换
+     * 在 solution3 的基础上避免了如果没有遇到 0 元素，k 和 i 同步前进，需要自己和自己交换的操作
      * 时间复杂度: O(n)
      * 空间复杂度: O(1)
      */
@@ -85,7 +88,7 @@ public class MoveZeroes {
         int k = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != 0) {
-                if (k != i) {
+                if (k != i) {   // k、i 不相等才交换
                     swap(nums, i, k);
                 }
                 k++;

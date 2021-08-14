@@ -1,4 +1,4 @@
-package array.leetcode;
+package array.leetcode.collision_pointer;
 
 import java.util.Arrays;
 
