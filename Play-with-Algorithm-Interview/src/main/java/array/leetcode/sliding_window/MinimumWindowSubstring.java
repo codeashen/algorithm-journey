@@ -6,7 +6,7 @@ package array.leetcode.sliding_window;
  * 如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 "" 。
  */
 public class MinimumWindowSubstring {
-    
+
     public static String minWindow(String s, String t) {
         if (s.length() < t.length()) {
             return "";
@@ -42,12 +42,12 @@ public class MinimumWindowSubstring {
                     break;
                 }
                 subArr[s.charAt(r) - 'A']++;
-            } 
+            }
         }
 
         return index == -1 ? "" : s.substring(index, index + length);
     }
-    
+
     private static boolean containAll(int[] subArr, int[] targetArr) {
         for (int i = 0; i < targetArr.length; i++) {
             if (subArr[i] < targetArr[i]) {
