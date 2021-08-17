@@ -1,5 +1,7 @@
 package sort.advance;
 
+import java.util.Arrays;
+
 /**
  * 快速排序
  * <p>
@@ -45,13 +47,13 @@ public class QuickSort {
          */
         swap(arr, l, (int) (Math.random() * (r - l + 1) + l));
         Comparable v = arr[l];
-        int p = l;  // 分界索引 p
+        int p = l;  // 分界索引 p，指向小区间尾部，p+1 就是大区间头部
         
         for (int i = l + 1; i <= r; i++) {
             // 从 l + 1 开始逐个将元素分界，使满足 arr[l+1, p] < v ; arr[p+1, i) > v
             if (arr[i].compareTo(v) < 0) {
-                p++;
-                swap(arr, p, i);
+                swap(arr, i, p + 1);   // 和大区间头部交换
+                p++;  // 更新小区间尾部
             }
         }
         
