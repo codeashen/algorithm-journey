@@ -1,4 +1,4 @@
-package timecomplexity;
+package time_complexity;
 
 /**
  * 数据规模测试

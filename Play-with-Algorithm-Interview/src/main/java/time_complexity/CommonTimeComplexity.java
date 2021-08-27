@@ -1,4 +1,4 @@
-package timecomplexity;
+package time_complexity;
 
 /**
  * 常见时间复杂度代码实例

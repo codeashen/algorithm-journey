@@ -1,4 +1,4 @@
-package timecomplexity;
+package time_complexity;
 
 public class Recursion {
 
