@@ -34,7 +34,7 @@ public class Knapsack4 {
         }
 
         for (int i = 1; i < n; i++) {           // 从第 i=1 号物品考虑，范围 [1...n-1]
-            for (int j = C; j >= w[i]; j--) {   // 从背包容量为 C 反向考虑，范围 [w(i)...C]
+            for (int j = C; j >= w[i]; j--) {   // 从背包容量为 C 反向考虑，范围 [w(i)...C]，小于 w(i) 时不用考虑了，因为放不下 i
                 // 取不放入 i 和放入 i，两者最大值
                 memo[j] = Math.max(memo[j], v[i] + memo[j - w[i]]);   // memo[j - w[i]] 在上一轮已经求得
             }
