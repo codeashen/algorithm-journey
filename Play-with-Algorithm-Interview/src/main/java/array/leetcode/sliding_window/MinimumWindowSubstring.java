@@ -20,7 +20,7 @@ public class MinimumWindowSubstring {
             subArr[s.charAt(i) - 'A']++;
         }
 
-        // 初始化滑动窗口左右边界，长度不小于字符串 t 长度
+        // 初始化滑动窗口左右边界，初始长度就是 t 的长度
         int l = 0, r = t.length() - 1;
         // 保存子串信息，索引和长度
         int index = -1, length = s.length() + 1;
