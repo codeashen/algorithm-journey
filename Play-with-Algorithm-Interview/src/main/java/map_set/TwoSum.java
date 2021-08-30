@@ -1,9 +1,8 @@
-package hashtable.basic;
+package map_set;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 1. 两数之和
