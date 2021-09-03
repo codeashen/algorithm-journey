@@ -33,7 +33,7 @@ public class Permutations {
         private void generatePermutation(int[] nums, int count, LinkedList<Integer> list) {
             // 如果排列中保存了全部个数，直接保存结果返回
             if (count == nums.length) {
-                res.add((List<Integer>) list.clone());
+                res.add(new LinkedList<>(list));  // 必须存副本
                 return;
             }
 
@@ -45,8 +45,8 @@ public class Permutations {
                     used[i] = true;
                     generatePermutation(nums, count + 1, list);  // 将下一个元素放到排列中
                     // 回溯，将元素复位，再进行下一轮循环
-                    list.removeLast();
                     used[i] = false;
+                    list.removeLast();
                 }
             }
         }
