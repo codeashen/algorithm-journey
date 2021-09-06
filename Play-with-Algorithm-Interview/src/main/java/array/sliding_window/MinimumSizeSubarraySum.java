@@ -1,4 +1,4 @@
-package array.leetcode.sliding_window;
+package array.sliding_window;
 
 /**
  * 209. 长度最小的子数组

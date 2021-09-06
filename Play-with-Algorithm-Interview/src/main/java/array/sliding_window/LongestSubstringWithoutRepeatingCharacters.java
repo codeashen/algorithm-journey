@@ -1,4 +1,4 @@
-package array.leetcode.sliding_window;
+package array.sliding_window;
 
 /**
  * 3. 无重复字符的最长子串

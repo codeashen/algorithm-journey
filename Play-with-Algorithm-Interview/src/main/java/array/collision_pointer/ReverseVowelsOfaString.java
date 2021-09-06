@@ -1,7 +1,4 @@
-package array.leetcode.collision_pointer;
-
-import java.util.HashSet;
-import java.util.Set;
+package array.collision_pointer;
 
 /**
  * 345. 反转字符串中的元音字母

@@ -24,10 +24,10 @@ public class ArrayGenUtil {
     /**
      * 生成有序数组
      */
-    public static Integer[] generateOrderedArray(int n) {
+    public static int[] generateOrderedArray(int n) {
         assert n > 0;
 
-        Integer[] arr = new Integer[n];
+        int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
             arr[i] = i;
         }

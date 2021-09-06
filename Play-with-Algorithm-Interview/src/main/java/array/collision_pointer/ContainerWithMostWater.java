@@ -1,4 +1,4 @@
-package array.leetcode.collision_pointer;
+package array.collision_pointer;
 
 /**
  * 11. 盛最多水的容器

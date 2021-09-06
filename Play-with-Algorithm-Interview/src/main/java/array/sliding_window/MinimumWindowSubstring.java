@@ -1,4 +1,4 @@
-package array.leetcode.sliding_window;
+package array.sliding_window;
 
 /**
  * 76. 最小覆盖子串

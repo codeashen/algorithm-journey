@@ -1,4 +1,4 @@
-package array.leetcode.sort;
+package array.sort;
 
 /**
  * 215. 数组中的第K个最大元素

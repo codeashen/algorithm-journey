@@ -1,4 +1,4 @@
-package array.leetcode.collision_pointer;
+package array.collision_pointer;
 
 /**
  * 125. 验证回文串
