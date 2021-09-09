@@ -1,6 +1,6 @@
 package NO_0001_Add_Two_Numbers;
 
-public class ListNode {
+class ListNode {
     int val;
     ListNode next;
 
