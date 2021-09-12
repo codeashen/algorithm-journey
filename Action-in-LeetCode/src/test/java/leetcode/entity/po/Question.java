@@ -46,4 +46,13 @@ public class Question {
     private String style;
     private String exampleTestcases;
     private String __typename;
+
+    private double acRate;
+    private int freqBar;
+    private boolean paidOnly;
+    private String frontendQuestionId;
+    private boolean isFavor;
+    private int solutionNum;
+    private String titleCn;
+    private Extra extra;
 }

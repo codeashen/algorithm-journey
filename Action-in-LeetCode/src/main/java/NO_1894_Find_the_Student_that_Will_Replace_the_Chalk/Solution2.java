@@ -1,4 +1,4 @@
-package NO_1894_Find_the_Student_that_will_Replace_the_Chalk;
+package NO_1894_Find_the_Student_that_Will_Replace_the_Chalk;
 
 /**
  * 1894. 找到需要补充粉笔的学生编号

@@ -1,158 +1,112 @@
 package leetcode.util;
 
-import javafx.util.Pair;
-import leetcode.FileAppender;
+import leetcode.Generator;
 import leetcode.entity.po.Question;
-import leetcode.entity.po.QuestionSearch;
 import leetcode.entity.po.TopicTags;
 import leetcode.enums.DifficultyEnum;
-import org.apache.http.HttpException;
+import leetcode.enums.MarkStatusEnum;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 public class MarkdownUtil {
 
-    public static String difficultyTag(String difficulty) {
-        return DifficultyEnum.markdown(difficulty);
+    private static final String ROW_PATTERN = "| %s | %s | %s | %s | %s | %s |";
+    private static final String LINK_PATTERN = "[%s<br>%s](https://leetcode-cn.com/problems/%s/)";
+    private static final String PACKAGE_PATTERN = "[Java](src/main/java/NO_%04d_%s/)";
+
+    /**
+     * 将题目插入到 README 目录中
+     */
+    public static void insertLine(List<Question> questions) throws IOException {
+        if (questions == null || questions.size() == 0) {
+            return;
+        }
+        String path = Generator.class.getResource("/").getPath();
+        String filePath = path.substring(0, path.indexOf("target")) + "README.md";
+        FileInputStream fis = new FileInputStream(filePath);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+
+        String line;
+        StringBuilder sb = new StringBuilder();
+        while ((line = reader.readLine()) != null) {
+            sb.append(line).append("\n");
+            if (line.contains("---")) {
+                break;
+            }
+        }
+        TreeMap<Integer, String> map = new TreeMap<>();
+        while ((line = reader.readLine()) != null && line.contains("| ")) {
+            int questionId = StringUtil.getInt(line);
+            if (questionId > 0) {
+                map.put(questionId, line);
+            }
+        }
+        for (Question item : questions) {
+            map.put(Integer.valueOf(StringUtil.getNotNull(item.getFrontendQuestionId(), item.getQuestionFrontendId())), getRow(item));
+        }
+        map.forEach((k, v) -> sb.append(v).append("\n"));
+
+        FileWriter fileWriter = new FileWriter(filePath);
+        fileWriter.write(sb.toString());
+        fileWriter.close();
+        System.out.println("README 插入行成功");
     }
 
-    public static String questionLink(String title, String translatedTitle, String titleSlug) {
-        String pattern = "[%s<br>%s](https://leetcode-cn.com/problems/%s/)";
-        return String.format(pattern, title, translatedTitle, titleSlug);
-    }
-
-    public static String codePath(String questionFrontendId, String title) {
-        String pattern = "[Java](src/main/java/%s/)";
-        String packageName = "NO_" + String.format("%04d", Integer.valueOf(questionFrontendId)) + "_" + title.replaceAll(" ", "_");
-        return String.format(pattern, packageName);
-    }
-
-    public static Pair<Integer, String> lineOfId(Integer id) throws IOException, HttpException {
-        QuestionSearch question = QuestionUtil.searchQuestion(id);
-        String questionFrontendId = question.getFrontendQuestionId();
+    /**
+     * 获取题目对应的 README 表格行
+     */
+    private static String getRow(Question question) {
+        String questionFrontendId = question.getFrontendQuestionId() != null ? question.getFrontendQuestionId() : question.getQuestionFrontendId();
         String title = question.getTitle();
-        String translatedTitle = question.getTitleCn();
+        String translatedTitle = question.getTitleCn() != null ? question.getTitleCn() : question.getTranslatedTitle();
         String difficulty = question.getDifficulty();
         List<TopicTags> topicTags = question.getTopicTags();
-        String rowPattern = "| %s | %s | %s | %s | %s | %s |";
-        String rowData = String.format(rowPattern,
+        return String.format(ROW_PATTERN,
                 questionFrontendId,
-                MarkdownUtil.questionLink(title, translatedTitle, question.getTitleSlug()),
-                MarkdownUtil.difficultyTag(difficulty),
-                MarkdownUtil.codePath(questionFrontendId, title),
-                "",
+                String.format(LINK_PATTERN, title, translatedTitle, question.getTitleSlug()),
+                DifficultyEnum.markdown(difficulty),
+                String.format(PACKAGE_PATTERN, Integer.valueOf(questionFrontendId), title.replaceAll(" ", "_")),
+                MarkStatusEnum.INIT.mark(),
                 topicTags.stream().map(TopicTags::getNameTranslated).reduce((o1, o2) -> o1 + ", " + o2).orElse("")
         );
-        return new Pair<>(Integer.valueOf(questionFrontendId), rowData);
     }
 
-    public static Pair<Integer, String> lineOfTitleSlug(String titleSlug) throws IOException, HttpException {
-        Question question = QuestionUtil.queryByTitleSlug(titleSlug);
-        String questionFrontendId = question.getQuestionFrontendId();
-        String title = question.getTitle();
-        String translatedTitle = question.getTranslatedTitle();
-        String difficulty = question.getDifficulty();
-        List<TopicTags> topicTags = question.getTopicTags();
-        String rowPattern = "| %s | %s | %s | %s | %s | %s |";
-        String rowData = String.format(rowPattern,
-                questionFrontendId,
-                MarkdownUtil.questionLink(title, translatedTitle, titleSlug),
-                MarkdownUtil.difficultyTag(difficulty),
-                MarkdownUtil.codePath(questionFrontendId, title),
-                "",
-                topicTags.stream().map(TopicTags::getTranslatedName).reduce((o1, o2) -> o1 + ", " + o2).orElse("")
-        );
-        return new Pair<>(Integer.valueOf(questionFrontendId), rowData);
-    }
+    /**
+     * 将题目状态标记为完成
+     */
+    public static void mark(MarkStatusEnum markStatusEnum, Integer... ids) throws IOException {
+        if (ids == null || ids.length == 0) {
+            return;
+        }
+        Set<Integer> idSet = Arrays.stream(ids).collect(Collectors.toSet());
 
-    public static void insertLine(String titleSlug) throws IOException, HttpException {
-        StringBuilder sb = new StringBuilder();
-
-        String path = FileAppender.class.getResource("/").getPath();
+        String path = Generator.class.getResource("/").getPath();
         String filePath = path.substring(0, path.indexOf("target")) + "README.md";
         FileInputStream fis = new FileInputStream(filePath);
         BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
         String line;
-        while ((line = reader.readLine()) != null) {
-            sb.append(line).append("\n");
-            if (line.contains("---")) {
-                break;
-            }
-        }
-
-        TreeMap<Integer, String> map = new TreeMap<>();
-        while ((line = reader.readLine()) != null) {
-            if (line.contains("| ")) {
-                int questionId = 0;
-                for (int i = 0; i < 10; i++) {
-                    char c = line.charAt(i);
-                    if (c >= '0' && c <= '9') {
-                        questionId = questionId * 10 + (c - '0');
-                    }
-                }
-                if (questionId > 0) {
-                    map.put(questionId, line);
-                }
-            }
-        }
-
-        Pair<Integer, String> pair = MarkdownUtil.lineOfTitleSlug(titleSlug);
-        map.put(pair.getKey(), pair.getValue());
-
-        map.forEach((k, v) -> sb.append(v).append("\n"));
-
-        String content = sb.toString();
-
-        FileWriter fileWriter = new FileWriter(filePath);
-        fileWriter.write(content);
-        fileWriter.close();
-    }
-
-    public static void insertLine(Integer id) throws IOException, HttpException {
         StringBuilder sb = new StringBuilder();
-
-        String path = FileAppender.class.getResource("/").getPath();
-        String filePath = path.substring(0, path.indexOf("target")) + "README.md";
-        FileInputStream fis = new FileInputStream(filePath);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
-
-        String line;
-        while ((line = reader.readLine()) != null) {
-            sb.append(line).append("\n");
-            if (line.contains("---")) {
-                break;
-            }
-        }
-
-        TreeMap<Integer, String> map = new TreeMap<>();
         while ((line = reader.readLine()) != null) {
             if (line.contains("| ")) {
-                int questionId = 0;
-                for (int i = 0; i < 10; i++) {
-                    char c = line.charAt(i);
-                    if (c >= '0' && c <= '9') {
-                        questionId = questionId * 10 + (c - '0');
+                int questionId = StringUtil.getInt(line);
+                if (idSet.contains(questionId)) {
+                    for (String otherMark : MarkStatusEnum.othersMark(markStatusEnum)) {
+                        line = line.replace(otherMark, markStatusEnum.mark());
                     }
                 }
-                if (questionId > 0) {
-                    map.put(questionId, line);
-                }
             }
+            sb.append(line).append("\n");
         }
 
-        Pair<Integer, String> pair = MarkdownUtil.lineOfId(id);
-        map.put(pair.getKey(), pair.getValue());
-
-        map.forEach((k, v) -> sb.append(v).append("\n"));
-
-        String content = sb.toString();
-
         FileWriter fileWriter = new FileWriter(filePath);
-        fileWriter.write(content);
+        fileWriter.write(sb.toString());
         fileWriter.close();
+        System.out.println("更新状态成功");
     }
-
 }

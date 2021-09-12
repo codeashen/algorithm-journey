@@ -4,16 +4,17 @@ import com.alibaba.fastjson.TypeReference;
 import leetcode.entity.common.DataResult;
 import leetcode.entity.po.ProblemsetQuestionList;
 import leetcode.entity.po.Question;
-import leetcode.entity.po.QuestionSearch;
 import leetcode.entity.response.ProblemsetQuestionData;
 import leetcode.entity.response.QuestionData;
 import org.apache.http.HttpException;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class QuestionUtil {
 
-    public static Question queryByTitleSlug(String titleSlug) throws HttpException, IOException {
+    public static Question questionDetail(String titleSlug) throws HttpException, IOException {
         final String query = "{\n" +
                 "  \"operationName\":\"questionData\",\n" +
                 "  \"variables\":{\n" +
@@ -27,26 +28,26 @@ public class QuestionUtil {
         return data.getQuestion();
     }
 
-    public static QuestionSearch searchQuestion(Integer id) throws HttpException, IOException {
-        final String query = "{\n" +
-                "    \"query\": \"\\n    query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $filters: QuestionListFilterInput) {\\n  problemsetQuestionList(\\n    categorySlug: $categorySlug\\n    limit: $limit\\n    skip: $skip\\n    filters: $filters\\n  ) {\\n    hasMore\\n    total\\n    questions {\\n      acRate\\n      difficulty\\n      freqBar\\n      frontendQuestionId\\n      isFavor\\n      paidOnly\\n      solutionNum\\n      status\\n      title\\n      titleCn\\n      titleSlug\\n      topicTags {\\n        name\\n        nameTranslated\\n        id\\n        slug\\n      }\\n      extra {\\n        hasVideoSolution\\n        topCompanyTags {\\n          imgUrl\\n          slug\\n          numSubscribed\\n        }\\n      }\\n    }\\n  }\\n}\\n    \",\n" +
-                "    \"variables\": {\n" +
-                "        \"categorySlug\": \"\",\n" +
-                "        \"skip\": 0,\n" +
-                "        \"limit\": 50,\n" +
-                "        \"filters\": {\n" +
-                "            \"searchKeywords\": \"" + id + "\"\n" +
-                "        }\n" +
-                "    },\n" +
-                "    \"operationName\": \"problemsetQuestionList\"\n" +
-                "}";
-        ProblemsetQuestionData data = HttpUtil.post(query, new TypeReference<DataResult<ProblemsetQuestionData>>() {
-        });
-        ProblemsetQuestionList questionList = data.getProblemsetQuestionList();
-        QuestionSearch question = questionList.getQuestions().stream().filter(e -> e.getFrontendQuestionId().equals(id.toString())).findFirst().orElse(null);
-        if (question == null) {
-            throw new RuntimeException("未找到指定 id 的题目");
+    public static List<Question> questionList(Integer... ids) throws HttpException, IOException {
+        List<Question> list = new ArrayList<>();
+        for (Integer id : ids) {
+            final String query = "{\n" +
+                    "    \"query\": \"\\n    query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $filters: QuestionListFilterInput) {\\n  problemsetQuestionList(\\n    categorySlug: $categorySlug\\n    limit: $limit\\n    skip: $skip\\n    filters: $filters\\n  ) {\\n    hasMore\\n    total\\n    questions {\\n      acRate\\n      difficulty\\n      freqBar\\n      frontendQuestionId\\n      isFavor\\n      paidOnly\\n      solutionNum\\n      status\\n      title\\n      titleCn\\n      titleSlug\\n      topicTags {\\n        name\\n        nameTranslated\\n        id\\n        slug\\n      }\\n      extra {\\n        hasVideoSolution\\n        topCompanyTags {\\n          imgUrl\\n          slug\\n          numSubscribed\\n        }\\n      }\\n    }\\n  }\\n}\\n    \",\n" +
+                    "    \"variables\": {\n" +
+                    "        \"categorySlug\": \"\",\n" +
+                    "        \"skip\": 0,\n" +
+                    "        \"limit\": 50,\n" +
+                    "        \"filters\": {\n" +
+                    "            \"searchKeywords\": \"" + id + "\"\n" +
+                    "        }\n" +
+                    "    },\n" +
+                    "    \"operationName\": \"problemsetQuestionList\"\n" +
+                    "}";
+            ProblemsetQuestionData data = HttpUtil.post(query, new TypeReference<DataResult<ProblemsetQuestionData>>() {
+            });
+            ProblemsetQuestionList questionList = data.getProblemsetQuestionList();
+            questionList.getQuestions().stream().filter(e -> e.getFrontendQuestionId().equals(id.toString())).findFirst().ifPresent(list::add);
         }
-        return question;
+        return list;
     }
 }
