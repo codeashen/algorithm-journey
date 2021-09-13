@@ -28,7 +28,7 @@ public class QuestionUtil {
         return data.getQuestion();
     }
 
-    public static List<Question> questionList(Integer... ids) throws HttpException, IOException {
+    public static List<Question> questionList(List<Integer> ids) throws HttpException, IOException {
         List<Question> list = new ArrayList<>();
         for (Integer id : ids) {
             final String query = "{\n" +

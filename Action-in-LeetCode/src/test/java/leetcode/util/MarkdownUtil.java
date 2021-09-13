@@ -79,12 +79,11 @@ public class MarkdownUtil {
     /**
      * 将题目状态标记为完成
      */
-    public static void mark(MarkStatusEnum markStatusEnum, Integer... ids) throws IOException {
-        if (ids == null || ids.length == 0) {
+    public static void mark(MarkStatusEnum markStatusEnum, List<Integer> ids) throws IOException {
+        if (ids == null || ids.size() == 0) {
             return;
         }
-        Set<Integer> idSet = Arrays.stream(ids).collect(Collectors.toSet());
-
+        
         String path = Generator.class.getResource("/").getPath();
         String filePath = path.substring(0, path.indexOf("target")) + "README.md";
         FileInputStream fis = new FileInputStream(filePath);
@@ -95,7 +94,7 @@ public class MarkdownUtil {
         while ((line = reader.readLine()) != null) {
             if (line.contains("| ")) {
                 int questionId = StringUtil.getInt(line);
-                if (idSet.contains(questionId)) {
+                if (ids.contains(questionId)) {
                     for (String otherMark : MarkStatusEnum.othersMark(markStatusEnum)) {
                         line = line.replace(otherMark, markStatusEnum.mark());
                     }
