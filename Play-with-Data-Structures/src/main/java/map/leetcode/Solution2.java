@@ -6,7 +6,7 @@ import java.util.TreeMap;
 /**
  * LeetCode第349题，两个数组的交集 II
  */
-public class Solution2 {
+class Solution2 {
     public int[] intersect(int[] nums1, int[] nums2) {
         TreeMap<Integer, Integer> map = new TreeMap<>();
         for (int num : nums1) {

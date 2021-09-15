@@ -6,7 +6,7 @@ import java.util.HashSet;
 /**
  * LeetCode第804题 唯一摩尔斯密码词
  */
-public class Solution {
+class Solution {
     public int uniqueMorseRepresentations(String[] words) {
         String[] codes = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", 
                 "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};

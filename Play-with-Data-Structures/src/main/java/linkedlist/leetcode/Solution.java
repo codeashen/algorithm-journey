@@ -4,7 +4,7 @@ package linkedlist.leetcode;
  * LeetCode第203题 移除链表元素
  * 基本解法
  */
-public class Solution {
+class Solution {
 
     /**
      * 现有一以 head 为头节点的链表，移除其中所有符合元素 val 的节点

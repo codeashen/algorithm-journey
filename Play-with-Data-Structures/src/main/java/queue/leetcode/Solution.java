@@ -8,7 +8,7 @@ import java.util.HashMap;
  * LeetCode第347题，前 K 个高频元素
  * 使用自己实现的 基于最大堆的优先队列 实现
  */
-public class Solution {
+class Solution {
 
     private class Freq implements Comparable<Freq> {
         int e;      // 元素

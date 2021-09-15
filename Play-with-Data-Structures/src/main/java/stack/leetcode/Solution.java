@@ -5,7 +5,7 @@ import java.util.Stack;
 /**
  * LeetCode第20题 有效的括号
  */
-public class Solution {
+class Solution {
 
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();

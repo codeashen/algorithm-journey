@@ -4,7 +4,7 @@ package linkedlist.leetcode;
  * LeetCode第203题 移除链表元素
  * 虚拟头节点解法 简化判断
  */
-public class Solution2 {
+class Solution2 {
 
     public ListNode removeElements(ListNode head, int val) {
         // 设置虚拟头节点，作为链表头的前驱节点

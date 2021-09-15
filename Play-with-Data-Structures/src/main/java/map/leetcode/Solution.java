@@ -6,7 +6,7 @@ import java.util.TreeSet;
 /**
  * LeetCode第349题，两个数组的交集
  */
-public class Solution {
+class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
         TreeSet<Integer> set = new TreeSet<>();
         for (int num : nums1) {

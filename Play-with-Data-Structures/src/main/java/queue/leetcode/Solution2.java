@@ -9,7 +9,7 @@ import java.util.PriorityQueue;
  * LeetCode第347题，前 K 个高频元素
  * 使用Java的 基于最小堆的优先队列 实现
  */
-public class Solution2 {
+class Solution2 {
 
     public int[] topKFrequent(int[] nums, int k) {
         // 统计频次的 map, key=元素，value=频次

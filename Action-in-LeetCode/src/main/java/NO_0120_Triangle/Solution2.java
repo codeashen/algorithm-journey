@@ -11,7 +11,7 @@ import java.util.List;
  * 时间复杂度: O(n^2)
  * 空间复杂度: O(n^2)
  */
-public class Solution2 {
+class Solution2 {
     public int minimumTotal(List<List<Integer>> triangle) {
         int n = triangle.size();       // n 表示行数
         int[][] memo = new int[n][n];  // meme[i][j] 表示从顶层到节点 c[i][j] 的最小路径和

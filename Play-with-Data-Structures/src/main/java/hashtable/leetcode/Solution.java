@@ -3,7 +3,7 @@ package hashtable.leetcode;
 /**
  * LeetCode第387题 字符串中的第一个唯一字符
  */
-public class Solution {
+class Solution {
     public int firstUniqChar(String s) {
         int[] freq = new int[26];
 

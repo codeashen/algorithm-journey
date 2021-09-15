@@ -4,7 +4,7 @@ package linkedlist.leetcode;
  * LeetCode第203题 移除链表元素
  * 递归解法
  */
-public class Solution3 {
+class Solution3 {
 
     /**
      * 递归判断节点是否需要被移除，不需要移除就返回本身，需要移除就返回下一个节点
