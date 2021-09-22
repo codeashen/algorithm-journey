@@ -1,7 +1,5 @@
 package NO_14_I;
 
-import java.util.Arrays;
-
 /**
  * 剑指 Offer 14- I. 剪绳子
  * https://leetcode-cn.com/problems/jian-sheng-zi-lcof/
