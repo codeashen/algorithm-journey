@@ -16,16 +16,16 @@ public class Generator {
 
     @Test
     public void generate() throws IOException, HttpException {
-        List<Integer> ids = Arrays.asList(149);
+        List<Integer> ids = Arrays.asList(220);
         List<Question> questions = QuestionUtil.questionList(ids);
         CodeUtil.generate(questions);
         MarkdownUtil.insertLine(questions);
-        // MarkdownUtil.mark(MarkStatusEnum.PASS, ids);
+        MarkdownUtil.mark(MarkStatusEnum.PASS, ids);
     }
 
     @Test
     public void mark() throws IOException {
-        List<Integer> ids = Arrays.asList(80);
+        List<Integer> ids = Arrays.asList(217, 219);
         MarkdownUtil.mark(MarkStatusEnum.PASS, ids);
     }
 }

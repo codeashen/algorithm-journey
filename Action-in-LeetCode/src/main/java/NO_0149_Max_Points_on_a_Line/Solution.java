@@ -9,7 +9,6 @@ import java.util.HashMap;
  * 哈希表统计斜率-频次
  */
 class Solution {
-
     public int maxPoints(int[][] points) {
         int n = points.length;
         if (n <= 2) return n;
@@ -53,14 +52,4 @@ class Solution {
     private int gcd(int a, int b) {
         return b != 0 ? gcd(b, a % b) : a;
     }
-
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        int[][] points = {
-                {1, 1}, {3, 2}, {5, 3}, {4, 1}, {2, 3}, {1, 4}
-                // {1,1],[3,2],[5,3],[4,1],[2,3],[1,4]
-        };
-        System.out.println(solution.maxPoints(points));
-    }
-
 }
