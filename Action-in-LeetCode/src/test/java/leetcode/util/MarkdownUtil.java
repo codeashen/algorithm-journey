@@ -48,6 +48,7 @@ public class MarkdownUtil {
         }
         for (Question item : questions) {
             map.put(Integer.valueOf(StringUtil.getNotNull(item.getFrontendQuestionId(), item.getQuestionFrontendId())), getRow(item));
+            System.out.format("这是你的第 %d 题，继续加油\n", map.size());
         }
         map.forEach((k, v) -> sb.append(v).append("\n"));
 
