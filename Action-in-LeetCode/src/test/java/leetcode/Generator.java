@@ -16,7 +16,7 @@ public class Generator {
 
     @Test
     public void generate() throws IOException, HttpException {
-        List<Integer> ids = Arrays.asList(220);
+        List<Integer> ids = Arrays.asList(234);
         List<Question> questions = QuestionUtil.questionList(ids);
         CodeUtil.generate(questions);
         MarkdownUtil.insertLine(questions);
@@ -25,7 +25,7 @@ public class Generator {
 
     @Test
     public void mark() throws IOException {
-        List<Integer> ids = Arrays.asList(217, 219);
+        List<Integer> ids = Arrays.asList(445);
         MarkdownUtil.mark(MarkStatusEnum.PASS, ids);
     }
 }

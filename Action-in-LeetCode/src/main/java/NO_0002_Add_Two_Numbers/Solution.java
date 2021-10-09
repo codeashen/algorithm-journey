@@ -37,7 +37,8 @@ class Solution {
         }
 
         // 不要忘记考虑最后还有进位的情况
-        if (carry > 0) tail.next = new ListNode(carry);
+        if (carry > 0) 
+            tail.next = new ListNode(carry);
 
         return head;
     }

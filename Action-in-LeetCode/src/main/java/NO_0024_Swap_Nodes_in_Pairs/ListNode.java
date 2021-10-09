@@ -1,4 +1,4 @@
-package NO_0002_Add_Two_Numbers;
+package NO_0024_Swap_Nodes_in_Pairs;
 
 public class ListNode {
     int val;

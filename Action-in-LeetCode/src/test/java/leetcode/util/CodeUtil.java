@@ -21,7 +21,7 @@ public class CodeUtil {
             String questionFrontendId = question.getFrontendQuestionId() != null ? question.getFrontendQuestionId() : question.getQuestionFrontendId();
             String title = question.getTitle();
             String translatedTitle = question.getTitleCn() != null ? question.getTitleCn() : question.getTranslatedTitle();
-            String packageName = String.format(PACKAGE_PATTERN, Integer.valueOf(questionFrontendId), title.replaceAll(" ", "_"));
+            String packageName = String.format(PACKAGE_PATTERN, Integer.valueOf(questionFrontendId), title.replaceAll("[ |-]", "_"));
             System.out.println("开始处理题目: " + questionFrontendId);
 
             // 获取模板路径和将要生成的包路径

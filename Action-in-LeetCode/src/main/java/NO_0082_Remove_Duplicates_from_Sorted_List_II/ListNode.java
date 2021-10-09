@@ -1,4 +1,4 @@
-package NO_0002_Add_Two_Numbers;
+package NO_0082_Remove_Duplicates_from_Sorted_List_II;
 
 public class ListNode {
     int val;

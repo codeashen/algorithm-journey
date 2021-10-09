@@ -1,4 +1,4 @@
-package NO_0002_Add_Two_Numbers;
+package NO_0021_Merge_Two_Sorted_Lists;
 
 public class ListNode {
     int val;

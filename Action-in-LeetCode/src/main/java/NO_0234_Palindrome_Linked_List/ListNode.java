@@ -1,4 +1,4 @@
-package NO_0002_Add_Two_Numbers;
+package NO_0234_Palindrome_Linked_List;
 
 public class ListNode {
     int val;
