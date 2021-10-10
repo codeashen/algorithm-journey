@@ -16,7 +16,7 @@ public class Generator {
 
     @Test
     public void generate() throws IOException, HttpException {
-        List<Integer> ids = Arrays.asList(347);
+        List<Integer> ids = Arrays.asList(127);
         List<Question> questions = QuestionUtil.questionList(ids);
         CodeUtil.generate(questions);
         MarkdownUtil.insertLine(questions);
