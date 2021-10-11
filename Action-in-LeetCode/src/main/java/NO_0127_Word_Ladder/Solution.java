@@ -6,9 +6,7 @@ import java.util.*;
  * 0127. 单词接龙
  * https://leetcode-cn.com/problems/word-ladder/
  * <p>
- * 深度优先遍历
- * 时间复杂度: O()
- * 空间复杂度: O()
+ * 广度优先遍历
  */
 class Solution {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
@@ -30,9 +28,8 @@ class Solution {
                     return count + 1;
                 // 遍历 wordList，找到能转换的单词，入队
                 for (String item : wordList) {
-                    if (visited.contains(item) || !canConvert(preWord, item)) {
-                        continue;   // 已经访问过和不能转换的不入队
-                    } else {
+                    // 未访问过且能转换，入队并记录访问状态
+                    if (!visited.contains(item) && canConvert(preWord, item)) {
                         queue.offer(item);
                         visited.add(item);
                     }

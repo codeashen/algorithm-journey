@@ -13,19 +13,18 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Generator {
-
     @Test
     public void generate() throws IOException, HttpException {
-        List<Integer> ids = Arrays.asList(127);
+        List<Integer> ids = Arrays.asList(450);
         List<Question> questions = QuestionUtil.questionList(ids);
         CodeUtil.generate(questions);
         MarkdownUtil.insertLine(questions);
-        MarkdownUtil.mark(MarkStatusEnum.INIT, ids);
+        MarkdownUtil.mark(MarkStatusEnum.PASS, ids);
     }
 
     @Test
     public void mark() throws IOException {
-        List<Integer> ids = Arrays.asList(445);
-        MarkdownUtil.mark(MarkStatusEnum.PASS, ids);
+        List<Integer> ids = Arrays.asList(437);
+        MarkdownUtil.mark(MarkStatusEnum.INIT, ids);
     }
 }
