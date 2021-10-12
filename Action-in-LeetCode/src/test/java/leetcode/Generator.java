@@ -15,7 +15,7 @@ import java.util.List;
 public class Generator {
     @Test
     public void generate() throws IOException, HttpException {
-        List<Integer> ids = Arrays.asList(450);
+        List<Integer> ids = Arrays.asList(236);
         List<Question> questions = QuestionUtil.questionList(ids);
         CodeUtil.generate(questions);
         MarkdownUtil.insertLine(questions);
