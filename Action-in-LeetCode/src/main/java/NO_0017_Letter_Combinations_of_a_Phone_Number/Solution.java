@@ -12,7 +12,6 @@ import java.util.List;
  * 空间复杂度: O(m + n)
  */
 class Solution {
-    
     // 每个数字对应的字母，0 和 1 在本题中不用
     private final String[] letterMap = {
             " ",    // 0
