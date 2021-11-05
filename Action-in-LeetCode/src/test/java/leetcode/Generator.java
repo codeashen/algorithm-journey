@@ -15,7 +15,7 @@ import java.util.List;
 public class Generator {
     @Test
     public void generate() throws IOException, HttpException {
-        List<Integer> ids = Arrays.asList(236);
+        List<Integer> ids = Arrays.asList(416);
         List<Question> questions = QuestionUtil.questionList(ids);
         CodeUtil.generate(questions);
         MarkdownUtil.insertLine(questions);
@@ -24,7 +24,7 @@ public class Generator {
 
     @Test
     public void mark() throws IOException {
-        List<Integer> ids = Arrays.asList(437);
+        List<Integer> ids = Arrays.asList(416);
         MarkdownUtil.mark(MarkStatusEnum.INIT, ids);
     }
 }

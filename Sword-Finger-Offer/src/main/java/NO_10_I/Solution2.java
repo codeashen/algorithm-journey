@@ -1,7 +1,5 @@
 package NO_10_I;
 
-import java.util.Arrays;
-
 /**
  * 剑指 Offer 10- I. 斐波那契数列
  * https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof/
