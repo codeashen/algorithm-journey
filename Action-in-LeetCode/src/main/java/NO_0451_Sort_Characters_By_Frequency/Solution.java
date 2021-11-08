@@ -1,7 +1,6 @@
 package NO_0451_Sort_Characters_By_Frequency;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 
 /**
@@ -22,7 +21,7 @@ class Solution {
         
         // 按照频次排序元素
         ArrayList<Character> list = new ArrayList<>(freqMap.keySet());
-        Collections.sort(list, (o1, o2) -> freqMap.get(o2) - freqMap.get(o1));
+        list.sort((o1, o2) -> freqMap.get(o2) - freqMap.get(o1));
 
         // 取出元素填到字符数组中
         char[] chars = new char[s.length()];
