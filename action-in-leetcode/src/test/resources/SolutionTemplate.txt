@@ -1,0 +1,11 @@
+package $$package$$;
+
+/**
+ * $$questionTitle$$
+ * $$questionLink$$
+ */
+@LeetCode(id = , title = "")
+@Complexity(time = "", space = "")
+class Solution {
+    
+}
