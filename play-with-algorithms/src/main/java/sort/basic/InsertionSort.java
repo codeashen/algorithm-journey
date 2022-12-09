@@ -43,7 +43,7 @@ public class InsertionSort {
      */
     public static void sort3(Comparable[] arr) {
         for (int i = 1; i < arr.length; i++) {
-            Comparable e = arr[i];   // 记录无须部分第一个元素 e
+            Comparable e = arr[i];   // 记录无序部分第一个元素 e
             int index = i;              // 存放 e 应该插入的位置 index
             
             while (index > 0 && arr[index - 1].compareTo(e) > 0) {

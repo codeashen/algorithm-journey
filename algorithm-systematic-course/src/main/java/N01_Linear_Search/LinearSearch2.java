@@ -21,7 +21,7 @@ public class LinearSearch2 {
 
     public static void main(String[] args) {
         int n = 100_000;
-        Integer[] data = ArrayGenerator.generateOrderedArray(n);
+        Integer[] data = ArrayGenerator.createOrderedArray(n);
 
         Stopwatch stopwatch = Stopwatch.createStarted();
         LinearSearch2.search(data, n);

@@ -8,7 +8,7 @@ import com.journey.algorithm.common.annotation.Complexity;
 @Complexity(time = "n^2")
 public class SelectionSort {
     /**
-     * 左边是有序部分，每一轮寻找无需部分最小的元素，和有序部分尾部后一个元素交换
+     * 左边是有序部分，每一轮寻找无序部分最小的元素，和有序部分尾部后一个元素交换
      */
     public static void sort1(Comparable[] arr) {
         for (int i = 0; i < arr.length; i++) {
