@@ -10,12 +10,13 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>common-component</module>
         <module>action-in-leetcode</module>
         <module>play-with-algorithm-interview</module>
         <module>play-with-algorithms</module>
         <module>play-with-data-structures</module>
         <module>sword-finger-offer</module>
-        <module>algorithm-common</module>
+        <module>algorithm-systematic-course</module>
     </modules>
 
     <properties>
