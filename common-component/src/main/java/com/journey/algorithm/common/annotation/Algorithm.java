@@ -14,10 +14,15 @@ public @interface Algorithm {
     /**
      * 算法主题
      */
-    String topic() default "";
+    String value() default "";
 
     /**
      * 解法
      */
     String solution() default "";
+
+    /**
+     * 改进点
+     */
+    String feat() default "";
 }
